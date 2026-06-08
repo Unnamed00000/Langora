@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lingua Step</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Полная программа с нуля</p>
+          <h1>Lingua Step</h1>
+        </div>
+
+        <div class="language-picker">
+          <button id="language-toggle" class="language-toggle" type="button" aria-expanded="false" aria-controls="language-menu">
+            <span>
+              <small>Язык обучения</small>
+              <strong id="selected-language-name">Японский</strong>
+            </span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div id="language-menu" class="language-menu" hidden></div>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="course-panel" aria-label="Уровни курса">
+          <div class="panel-title">Маршрут</div>
+          <div id="level-list" class="level-list"></div>
+        </aside>
+
+        <section class="content">
+          <section class="hero">
+            <div>
+              <p id="language-script" class="script-label"></p>
+              <h2 id="language-title"></h2>
+              <p id="language-goal" class="hero-copy"></p>
+            </div>
+            <div class="hero-stats" aria-label="Учебная цель">
+              <div>
+                <strong id="daily-count">0/5</strong>
+                <span>слов сегодня</span>
+              </div>
+              <div>
+                <strong>A0-C1</strong>
+                <span>от нуля до свободы</span>
+              </div>
+              <div>
+                <strong>3</strong>
+                <span>времени в словах</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="level-board">
+            <div class="level-heading">
+              <div>
+                <p class="eyebrow">Текущий этап</p>
+                <h3 id="level-title"></h3>
+                <p id="level-description"></p>
+              </div>
+              <button id="mark-level" class="primary-button" type="button">Отметить этап</button>
+            </div>
+
+            <nav id="lesson-tabs" class="lesson-tabs" aria-label="Уроки уровня"></nav>
+
+            <section id="lesson-content" class="lesson-content" aria-live="polite"></section>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
