@@ -366,6 +366,14 @@ h3 {
   line-height: 1.55;
 }
 
+.about-section {
+  text-align: center;
+}
+
+.about-section .settings-label {
+  text-align: center;
+}
+
 .settings-select {
   width: 100%;
   margin-top: 12px;
@@ -456,6 +464,7 @@ h3 {
 
 .developer-line {
   margin-top: 8px;
+  text-align: center;
 }
 
 .developer-line strong,
