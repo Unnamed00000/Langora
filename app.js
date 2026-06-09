@@ -344,7 +344,7 @@ const languages = [
   }
 ];
 
-const appVersion = "1.1.0";
+const appVersion = "1.1.1";
 const appLanguages = [
   { id: "ru", name: "Русский", html: "ru" },
   { id: "ka", name: "ქართული", html: "ka" },
@@ -365,6 +365,7 @@ const ui = {
     markLevel: "Отметить этап",
     levelDone: "Этап пройден",
     settingsKicker: "Настройки",
+    settingsButton: "Настройки",
     settingsTitle: "Настройки приложения",
     appLanguage: "Язык приложения",
     appLanguageHint: "Меняет язык кнопок, меню и подсказок.",
@@ -412,6 +413,7 @@ const ui = {
     markLevel: "ეტაპის მონიშვნა",
     levelDone: "ეტაპი გავლილია",
     settingsKicker: "პარამეტრები",
+    settingsButton: "პარამეტრები",
     settingsTitle: "აპლიკაციის პარამეტრები",
     appLanguage: "აპლიკაციის ენა",
     appLanguageHint: "ცვლის ღილაკების, მენიუებისა და მინიშნებების ენას.",
@@ -459,6 +461,7 @@ const ui = {
     markLevel: "Stufe markieren",
     levelDone: "Stufe erledigt",
     settingsKicker: "Einstellungen",
+    settingsButton: "Einstellungen",
     settingsTitle: "App-Einstellungen",
     appLanguage: "App-Sprache",
     appLanguageHint: "Ändert Buttons, Menüs und Hinweise.",
@@ -506,6 +509,7 @@ const ui = {
     markLevel: "Marker trin",
     levelDone: "Trin fuldført",
     settingsKicker: "Indstillinger",
+    settingsButton: "Indstillinger",
     settingsTitle: "Appindstillinger",
     appLanguage: "Appens sprog",
     appLanguageHint: "Ændrer knapper, menuer og forklaringer.",
@@ -553,6 +557,7 @@ const ui = {
     markLevel: "Mark stage",
     levelDone: "Stage complete",
     settingsKicker: "Settings",
+    settingsButton: "Settings",
     settingsTitle: "App settings",
     appLanguage: "App language",
     appLanguageHint: "Changes buttons, menus, and helper text.",
@@ -712,6 +717,7 @@ function renderStaticUi() {
   document.querySelector("#tenses-label").textContent = text("tenses");
   document.querySelector("#current-stage-label").textContent = text("currentStage");
   document.querySelector("#settings-kicker").textContent = text("settingsKicker");
+  document.querySelector("#settings-button-label").textContent = text("settingsButton");
   document.querySelector("#settings-title").textContent = text("settingsTitle");
   document.querySelector("#settings-app-language-label").textContent = text("appLanguage");
   document.querySelector("#settings-app-language-hint").textContent = text("appLanguageHint");

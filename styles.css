@@ -65,22 +65,21 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 34px;
   margin-bottom: 20px;
 }
 
 .top-controls {
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) auto;
-  gap: 12px;
-  width: min(480px, 100%);
+  grid-template-columns: minmax(290px, 360px) minmax(178px, 230px);
+  gap: clamp(22px, 4vw, 54px);
+  align-items: center;
+  justify-content: end;
+  width: min(680px, 100%);
 }
 
-.picker-group {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 8px;
-  align-items: center;
+.learning-control {
+  min-width: 0;
 }
 
 .help-button {
@@ -105,22 +104,52 @@ body.dark .help-button:hover {
   background: #205142;
 }
 
-.settings-toggle {
+.in-field-help {
+  position: absolute;
+  top: 50%;
+  right: 44px;
+  z-index: 2;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  box-shadow: none;
+}
+
+.settings-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  padding: 10px 10px 10px 14px;
+  text-align: left;
+  font-weight: 900;
+}
+
+.settings-control:hover {
+  border-color: var(--accent);
+}
+
+.settings-hex {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 46px;
+  height: 46px;
   border: 1px solid rgba(22, 114, 90, 0.36);
   background: var(--accent);
   color: white;
   clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0 50%);
-  box-shadow: var(--shadow);
   font-size: 1.3rem;
   font-weight: 900;
 }
 
-.settings-toggle:hover {
+.settings-control:hover .settings-hex {
   background: var(--accent-dark);
   color: var(--surface);
 }
@@ -173,7 +202,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
-  padding: 12px 14px;
+  padding: 12px 84px 12px 14px;
   color: var(--ink);
   box-shadow: var(--shadow);
   text-align: left;
@@ -193,6 +222,10 @@ h3 {
 }
 
 .chevron {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
   color: var(--accent-dark);
   font-size: 1.5rem;
 }
@@ -760,6 +793,8 @@ input:focus {
   .pronunciation-grid,
   .top-controls {
     grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
   }
 
   .course-panel {
@@ -806,8 +841,8 @@ input:focus {
     grid-template-columns: 1fr;
   }
 
-  .settings-toggle {
-    width: 52px;
-    height: 52px;
+  .settings-hex {
+    width: 44px;
+    height: 44px;
   }
 }

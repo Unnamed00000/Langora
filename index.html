@@ -20,8 +20,7 @@
         </div>
 
         <div class="top-controls">
-          <div class="picker-group">
-            <button class="help-button" type="button" data-help="learning" aria-label="Что такое язык обучения?">?</button>
+          <div class="learning-control">
             <div class="language-picker">
               <button id="language-toggle" class="language-toggle" type="button" aria-expanded="false" aria-controls="language-menu">
                 <span>
@@ -30,11 +29,15 @@
                 </span>
                 <span class="chevron">⌄</span>
               </button>
+              <button class="help-button in-field-help" type="button" data-help="learning" aria-label="Что такое язык обучения?">?</button>
               <div id="language-menu" class="language-menu" hidden></div>
             </div>
           </div>
 
-          <button id="settings-toggle" class="settings-toggle" type="button" aria-label="Настройки" aria-controls="settings-modal">⚙</button>
+          <button id="settings-toggle" class="settings-control" type="button" aria-label="Настройки" aria-controls="settings-modal">
+            <span id="settings-button-label">Настройки</span>
+            <span class="settings-hex" aria-hidden="true">⚙</span>
+          </button>
         </div>
       </header>
 
@@ -152,7 +155,7 @@
         <section class="settings-section">
           <span id="about-title" class="settings-label">О приложении</span>
           <p id="about-text">Langora помогает учить языки с полного нуля: алфавит, произношение, слова, времена и разговорные уровни.</p>
-          <p class="version-line"><span id="version-label">Версия</span>: <strong id="app-version">1.1.0</strong></p>
+          <p class="version-line"><span id="version-label">Версия</span>: <strong id="app-version">1.1.1</strong></p>
         </section>
       </div>
     </div>
