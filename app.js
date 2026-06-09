@@ -344,7 +344,7 @@ const languages = [
   }
 ];
 
-const appVersion = "1.1.9";
+const appVersion = "1.2.0";
 const appLanguages = [
   { id: "ru", name: "Русский", html: "ru" },
   { id: "ka", name: "ქართული", html: "ka" },
@@ -1250,6 +1250,35 @@ async function updateApp() {
   window.location.replace(url.toString());
 }
 
+function askWorkerToActivate(worker) {
+  if (worker) worker.postMessage({ type: "SKIP_WAITING" });
+}
+
+function reloadAfterUpdate() {
+  const reloadKey = `langora-reloaded-${appVersion}`;
+  if (sessionStorage.getItem(reloadKey)) return;
+  sessionStorage.setItem(reloadKey, "true");
+  const url = new URL(window.location.href);
+  url.searchParams.set("force", `${appVersion}-${Date.now()}`);
+  window.location.replace(url.toString());
+}
+
+function watchForServiceWorkerUpdate(registration) {
+  if (registration.waiting) {
+    askWorkerToActivate(registration.waiting);
+  }
+
+  registration.addEventListener("updatefound", () => {
+    const worker = registration.installing;
+    if (!worker) return;
+    worker.addEventListener("statechange", () => {
+      if (worker.state === "installed" && navigator.serviceWorker.controller) {
+        askWorkerToActivate(worker);
+      }
+    });
+  });
+}
+
 async function shareApp() {
   const shareData = {
     title: "Langora",
@@ -1388,11 +1417,17 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.addEventListener("controllerchange", () => {
     if (sessionStorage.getItem("langora-controller-reloaded") === appVersion) return;
     sessionStorage.setItem("langora-controller-reloaded", appVersion);
-    window.location.reload();
+    reloadAfterUpdate();
   });
 
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register(`sw.js?v=${appVersion}`);
+  window.addEventListener("load", async () => {
+    try {
+      const registration = await navigator.serviceWorker.register(`sw.js?v=${appVersion}`);
+      watchForServiceWorkerUpdate(registration);
+      await registration.update();
+    } catch (error) {
+      console.warn("Langora update check failed", error);
+    }
   });
 }
 
