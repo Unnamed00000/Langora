@@ -305,6 +305,7 @@ h3 {
 
 .modal-close {
   position: absolute;
+  z-index: 3;
   top: 12px;
   right: 12px;
   display: inline-flex;
@@ -318,6 +319,7 @@ h3 {
   color: var(--ink);
   font-size: 1.4rem;
   line-height: 1;
+  pointer-events: auto;
 }
 
 body.dark .modal-close {

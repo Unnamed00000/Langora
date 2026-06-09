@@ -344,7 +344,7 @@ const languages = [
   }
 ];
 
-const appVersion = "1.1.1";
+const appVersion = "1.1.2";
 const appLanguages = [
   { id: "ru", name: "Русский", html: "ru" },
   { id: "ka", name: "ქართული", html: "ka" },
@@ -1088,12 +1088,24 @@ languageMenu.addEventListener("click", (event) => {
 });
 
 settingsToggle.addEventListener("click", openSettings);
-settingsClose.addEventListener("click", closeSettings);
+settingsClose.addEventListener("click", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  closeSettings();
+});
 helpClose.addEventListener("click", closeHelp);
 updateAppButton.addEventListener("click", updateApp);
 shareAppButton.addEventListener("click", shareApp);
 
 document.addEventListener("click", (event) => {
+  const closeTarget = event.target.closest("[data-close-modal]");
+  if (closeTarget) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (closeTarget.dataset.closeModal === "settings") closeSettings();
+    return;
+  }
+
   const helpButton = event.target.closest("[data-help]");
   if (helpButton) {
     openHelp(helpButton.dataset.help);
@@ -1107,6 +1119,12 @@ document.addEventListener("click", (event) => {
 
   if (event.target === helpModal) closeHelp();
   if (event.target === settingsModal) closeSettings();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  if (!helpModal.hidden) closeHelp();
+  if (!settingsModal.hidden) closeSettings();
 });
 
 appLanguageSelect.addEventListener("change", () => {
