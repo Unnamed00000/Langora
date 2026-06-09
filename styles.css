@@ -246,6 +246,7 @@ body.dark .word-card,
 body.dark .alphabet-card,
 body.dark .example-row,
 body.dark .practice-card,
+body.dark .dictionary-card,
 body.dark .modal,
 body.dark .settings-modal {
   background: var(--surface);
@@ -722,7 +723,8 @@ body.dark .settings-modal {
 .lesson-grid,
 .word-grid,
 .alphabet-grid,
-.pronunciation-grid {
+.pronunciation-grid,
+.dictionary-grid {
   display: grid;
   gap: 12px;
 }
@@ -750,6 +752,88 @@ body.dark .settings-modal {
 
 .pronunciation-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dictionary-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.dictionary-search-row label {
+  display: grid;
+  gap: 8px;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.letter-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.letter-chip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 8px 12px;
+  font-weight: 900;
+}
+
+.letter-chip.active,
+.letter-chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.dictionary-grid {
+  grid-template-columns: 1fr;
+}
+
+.dictionary-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.92);
+  box-shadow: var(--shadow);
+  padding: 15px;
+}
+
+.dictionary-card-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(160px, auto);
+  gap: 12px;
+  align-items: start;
+}
+
+.dictionary-card h4 {
+  margin: 8px 0 6px;
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+}
+
+.dictionary-meaning {
+  justify-self: end;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  padding: 8px 12px;
+  color: var(--accent-dark);
+  text-align: right;
+}
+
+.dictionary-detail {
+  margin-top: 12px;
+}
+
+.dictionary-detail span {
+  color: var(--accent-dark);
+  font-weight: 900;
+}
+
+.dictionary-detail p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .lesson-card,
@@ -953,8 +1037,14 @@ input:focus {
   .level-list,
   .word-grid,
   .example-row,
+  .dictionary-card-head,
   .install-grid {
     grid-template-columns: 1fr;
+  }
+
+  .dictionary-meaning {
+    justify-self: start;
+    text-align: left;
   }
 
   .settings-hex {

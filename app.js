@@ -404,7 +404,7 @@ const languages = [
   }
 ];
 
-const appVersion = "1.2.1";
+const appVersion = "1.2.2";
 const appLanguages = [
   { id: "ru", name: "Русский", html: "ru" },
   { id: "ka", name: "ქართული", html: "ka" },
@@ -911,11 +911,285 @@ const numberLessonText = {
   }
 };
 
+const dictionaryRouteText = {
+  ru: {
+    code: "Слова",
+    title: "Словарь слов",
+    short: "поиск и формы",
+    description: "Отдельный том обязательных слов: ищи по слову, переводу или чтению, открывай по буквам и смотри настоящее, прошедшее и будущее.",
+    search: "Поиск слова",
+    placeholder: "Напиши слово, перевод или чтение",
+    allLetters: "Все",
+    required: "Обязательные слова",
+    found: "Найдено",
+    noResults: "Пока нет совпадений. Попробуй другое слово.",
+    meaning: "Значение",
+    usage: "Где используется",
+    forms: "Формы",
+    present: "Настоящее",
+    past: "Прошедшее",
+    future: "Будущее",
+    wordType: "Тип"
+  },
+  ka: {
+    code: "სიტყვები",
+    title: "სიტყვების ლექსიკონი",
+    short: "ძებნა და ფორმები",
+    description: "აუცილებელი სიტყვების ცალკე ტომი: მოძებნე სიტყვით, თარგმანით ან კითხვით და ნახე აწმყო, წარსული და მომავალი.",
+    search: "სიტყვის ძებნა",
+    placeholder: "ჩაწერე სიტყვა, თარგმანი ან კითხვა",
+    allLetters: "ყველა",
+    required: "აუცილებელი სიტყვები",
+    found: "ნაპოვნია",
+    noResults: "ჯერ ვერ მოიძებნა. სცადე სხვა სიტყვა.",
+    meaning: "მნიშვნელობა",
+    usage: "სად გამოიყენება",
+    forms: "ფორმები",
+    present: "აწმყო",
+    past: "წარსული",
+    future: "მომავალი",
+    wordType: "ტიპი"
+  },
+  de: {
+    code: "Wörter",
+    title: "Wörterbuch",
+    short: "Suche und Formen",
+    description: "Ein eigener Band mit Pflichtwörtern: Suche nach Wort, Übersetzung oder Lesung und sieh Gegenwart, Vergangenheit und Zukunft.",
+    search: "Wort suchen",
+    placeholder: "Wort, Übersetzung oder Lesung schreiben",
+    allLetters: "Alle",
+    required: "Pflichtwörter",
+    found: "Gefunden",
+    noResults: "Noch keine Treffer. Versuche ein anderes Wort.",
+    meaning: "Bedeutung",
+    usage: "Verwendung",
+    forms: "Formen",
+    present: "Gegenwart",
+    past: "Vergangenheit",
+    future: "Zukunft",
+    wordType: "Typ"
+  },
+  da: {
+    code: "Ord",
+    title: "Ordbog",
+    short: "søgning og former",
+    description: "Et særskilt bind med nødvendige ord: søg efter ord, oversættelse eller læsning og se nutid, fortid og fremtid.",
+    search: "Søg ord",
+    placeholder: "Skriv ord, oversættelse eller læsning",
+    allLetters: "Alle",
+    required: "Nødvendige ord",
+    found: "Fundet",
+    noResults: "Ingen resultater endnu. Prøv et andet ord.",
+    meaning: "Betydning",
+    usage: "Hvor det bruges",
+    forms: "Former",
+    present: "Nutid",
+    past: "Fortid",
+    future: "Fremtid",
+    wordType: "Type"
+  },
+  en: {
+    code: "Words",
+    title: "Word dictionary",
+    short: "search and forms",
+    description: "A separate volume of essential words: search by word, meaning, or reading, browse by letters, and see present, past, and future.",
+    search: "Search word",
+    placeholder: "Type a word, meaning, or reading",
+    allLetters: "All",
+    required: "Essential words",
+    found: "Found",
+    noResults: "No matches yet. Try another word.",
+    meaning: "Meaning",
+    usage: "Where it is used",
+    forms: "Forms",
+    present: "Present",
+    past: "Past",
+    future: "Future",
+    wordType: "Type"
+  }
+};
+
+const dictionaryTypes = {
+  greeting: { ru: "приветствие", ka: "მისალმება", de: "Begrüßung", da: "hilsen", en: "greeting" },
+  phrase: { ru: "фраза", ka: "ფრაზა", de: "Satz", da: "frase", en: "phrase" },
+  noun: { ru: "существительное", ka: "არსებითი სახელი", de: "Substantiv", da: "navneord", en: "noun" },
+  pronoun: { ru: "местоимение", ka: "ნაცვალსახელი", de: "Pronomen", da: "stedord", en: "pronoun" },
+  verb: { ru: "глагол", ka: "ზმნა", de: "Verb", da: "udsagnsord", en: "verb" }
+};
+
+const dictionaryEntries = [
+  {
+    key: "hello",
+    type: "greeting",
+    priority: 1,
+    meaning: { ru: "привет / здравствуйте", ka: "გამარჯობა", de: "Hallo", da: "hej", en: "hello" },
+    usage: { ru: "Используется при встрече, начале разговора и знакомстве.", ka: "გამოიყენება შეხვედრისას და საუბრის დასაწყისში.", de: "Wird beim Treffen und am Gesprächsanfang benutzt.", da: "Bruges når man mødes og starter en samtale.", en: "Used when meeting someone or starting a conversation." },
+    words: { japanese: ["こんにちは", "konnichiwa"], russian: ["привет", "privet"], georgian: ["გამარჯობა", "gamarjoba"], german: ["hallo", "ha-lo"], danish: ["hej", "hai"], italian: ["ciao", "chao"], english: ["hello", "he-lo"] }
+  },
+  {
+    key: "thanks",
+    type: "phrase",
+    priority: 2,
+    meaning: { ru: "спасибо / благодарность", ka: "მადლობა", de: "Danke", da: "tak", en: "thank you" },
+    usage: { ru: "Используется, когда благодаришь человека за помощь, подарок или ответ.", ka: "გამოიყენება მადლობის სათქმელად დახმარებისთვის ან პასუხისთვის.", de: "Benutzt man, wenn man sich für Hilfe, Antwort oder Geschenk bedankt.", da: "Bruges når du takker for hjælp, svar eller gave.", en: "Used to thank someone for help, an answer, or a gift." },
+    words: { japanese: ["ありがとう", "arigato"], russian: ["спасибо", "spasibo"], georgian: ["მადლობა", "madloba"], german: ["danke", "dan-ke"], danish: ["tak", "tak"], italian: ["grazie", "grat-tsie"], english: ["thank you", "thenk yu"] }
+  },
+  {
+    key: "yes",
+    type: "phrase",
+    priority: 3,
+    meaning: { ru: "да / согласие", ka: "დიახ", de: "Ja", da: "ja", en: "yes" },
+    usage: { ru: "Используется для согласия, подтверждения и короткого ответа.", ka: "გამოიყენება თანხმობისა და დადასტურებისთვის.", de: "Für Zustimmung, Bestätigung und kurze Antworten.", da: "Bruges til enighed, bekræftelse og korte svar.", en: "Used for agreement, confirmation, and short answers." },
+    words: { japanese: ["はい", "hai"], russian: ["да", "da"], georgian: ["დიახ", "diakh"], german: ["ja", "ya"], danish: ["ja", "ya"], italian: ["sì", "si"], english: ["yes", "yes"] }
+  },
+  {
+    key: "no",
+    type: "phrase",
+    priority: 4,
+    meaning: { ru: "нет / отрицание", ka: "არა", de: "Nein", da: "nej", en: "no" },
+    usage: { ru: "Используется для отказа, отрицания и короткого ответа.", ka: "გამოიყენება უარისა და უარყოფისთვის.", de: "Für Ablehnung, Verneinung und kurze Antworten.", da: "Bruges til afslag, negation og korte svar.", en: "Used for refusal, negation, and short answers." },
+    words: { japanese: ["いいえ", "iie"], russian: ["нет", "net"], georgian: ["არა", "ara"], german: ["nein", "nain"], danish: ["nej", "nai"], italian: ["no", "no"], english: ["no", "no"] }
+  },
+  {
+    key: "water",
+    type: "noun",
+    priority: 5,
+    meaning: { ru: "вода", ka: "წყალი", de: "Wasser", da: "vand", en: "water" },
+    usage: { ru: "Нужно в кафе, магазине, дома, в дороге и в просьбах.", ka: "საჭიროა კაფეში, მაღაზიაში, სახლში და გზაში.", de: "Wichtig im Café, Laden, Zuhause, unterwegs und bei Bitten.", da: "Vigtigt på café, i butik, hjemme, på vej og i ønsker.", en: "Needed in cafes, shops, at home, while traveling, and in requests." },
+    words: { japanese: ["水", "mizu"], russian: ["вода", "voda"], georgian: ["წყალი", "tsq'ali"], german: ["Wasser", "vas-ser"], danish: ["vand", "van"], italian: ["acqua", "ak-kwa"], english: ["water", "wo-ter"] }
+  },
+  {
+    key: "food",
+    type: "noun",
+    priority: 6,
+    meaning: { ru: "еда / пища", ka: "საჭმელი", de: "Essen", da: "mad", en: "food" },
+    usage: { ru: "Нужно в ресторане, дома, магазине и разговоре о голоде.", ka: "საჭიროა რესტორანში, სახლში, მაღაზიაში და შიმშილზე საუბარში.", de: "Wichtig im Restaurant, Zuhause, Laden und beim Thema Hunger.", da: "Vigtigt på restaurant, hjemme, i butik og når man taler om sult.", en: "Needed in restaurants, at home, in shops, and when talking about hunger." },
+    words: { japanese: ["食べ物", "tabemono"], russian: ["еда", "yeda"], georgian: ["საჭმელი", "sachmeli"], german: ["Essen", "es-sen"], danish: ["mad", "mad"], italian: ["cibo", "chi-bo"], english: ["food", "food"] }
+  },
+  {
+    key: "home",
+    type: "noun",
+    priority: 7,
+    meaning: { ru: "дом", ka: "სახლი", de: "Haus / Zuhause", da: "hjem", en: "home" },
+    usage: { ru: "Используется для адреса, семьи, возвращения и описания места.", ka: "გამოიყენება მისამართზე, ოჯახზე და დაბრუნებაზე საუბარში.", de: "Für Adresse, Familie, Rückkehr und Orte.", da: "Bruges til adresse, familie, hjemkomst og steder.", en: "Used for address, family, returning, and describing places." },
+    words: { japanese: ["家", "ie / uchi"], russian: ["дом", "dom"], georgian: ["სახლი", "sakhli"], german: ["Haus", "haus"], danish: ["hjem", "yem"], italian: ["casa", "ka-za"], english: ["home", "home"] }
+  },
+  {
+    key: "person",
+    type: "noun",
+    priority: 8,
+    meaning: { ru: "человек", ka: "ადამიანი", de: "Mensch / Person", da: "person", en: "person" },
+    usage: { ru: "Нужно, когда говоришь о людях, знакомстве, помощи и описании.", ka: "გამოიყენება ადამიანებზე, გაცნობაზე და დახმარებაზე საუბარში.", de: "Für Menschen, Kennenlernen, Hilfe und Beschreibungen.", da: "Bruges om mennesker, bekendtskab, hjælp og beskrivelser.", en: "Used when talking about people, meeting, help, and descriptions." },
+    words: { japanese: ["人", "hito"], russian: ["человек", "chelovek"], georgian: ["ადამიანი", "adamiani"], german: ["Person", "per-zon"], danish: ["person", "per-son"], italian: ["persona", "per-so-na"], english: ["person", "per-son"] }
+  },
+  {
+    key: "i",
+    type: "pronoun",
+    priority: 9,
+    meaning: { ru: "я", ka: "მე", de: "ich", da: "jeg", en: "I" },
+    usage: { ru: "Главное слово для рассказа о себе: я хочу, я знаю, я иду.", ka: "მთავარი სიტყვაა საკუთარ თავზე საუბრისთვის.", de: "Das wichtigste Wort, um über dich selbst zu sprechen.", da: "Det vigtigste ord til at tale om dig selv.", en: "The main word for talking about yourself." },
+    words: { japanese: ["私", "watashi"], russian: ["я", "ya"], georgian: ["მე", "me"], german: ["ich", "ikh"], danish: ["jeg", "yai"], italian: ["io", "io"], english: ["I", "ai"] }
+  },
+  {
+    key: "you",
+    type: "pronoun",
+    priority: 10,
+    meaning: { ru: "ты / вы", ka: "შენ / თქვენ", de: "du / Sie", da: "du", en: "you" },
+    usage: { ru: "Используется в вопросах, просьбах и обращении к человеку.", ka: "გამოიყენება კითხვებში, თხოვნებში და მიმართვაში.", de: "Für Fragen, Bitten und direkte Ansprache.", da: "Bruges i spørgsmål, ønsker og tiltale.", en: "Used in questions, requests, and direct address." },
+    words: { japanese: ["あなた", "anata"], russian: ["ты / вы", "ty / vy"], georgian: ["შენ / თქვენ", "shen / tkven"], german: ["du / Sie", "du / zi"], danish: ["du", "du"], italian: ["tu / Lei", "tu / lei"], english: ["you", "yu"] }
+  },
+  {
+    key: "go",
+    type: "verb",
+    priority: 11,
+    meaning: { ru: "идти / идти куда-то", ka: "წასვლა", de: "gehen", da: "gå", en: "to go" },
+    usage: { ru: "Используется для движения, дороги, планов и направления.", ka: "გამოიყენება მოძრაობის, გზისა და გეგმებისთვის.", de: "Für Bewegung, Wege, Pläne und Richtung.", da: "Bruges til bevægelse, vej, planer og retning.", en: "Used for movement, routes, plans, and direction." },
+    words: { japanese: ["行く", "iku"], russian: ["идти", "idti"], georgian: ["წასვლა", "ts'asvla"], german: ["gehen", "ge-hen"], danish: ["gå", "go"], italian: ["andare", "an-da-re"], english: ["go", "go"] },
+    forms: { japanese: ["行きます", "行きました", "明日行きます"], russian: ["я иду", "я шёл / шла", "я пойду"], georgian: ["მე მივდივარ", "მე წავედი", "მე წავალ"], german: ["ich gehe", "ich bin gegangen", "ich werde gehen"], danish: ["jeg går", "jeg gik", "jeg vil gå"], italian: ["vado", "sono andato / andata", "andrò"], english: ["I go", "I went", "I will go"] }
+  },
+  {
+    key: "eat",
+    type: "verb",
+    priority: 12,
+    meaning: { ru: "есть / кушать", ka: "ჭამა", de: "essen", da: "spise", en: "to eat" },
+    usage: { ru: "Нужно для еды, ресторана, дома и разговора о голоде.", ka: "საჭიროა საჭმელზე, რესტორანზე და შიმშილზე საუბარში.", de: "Für Essen, Restaurant, Zuhause und Hunger.", da: "Bruges om mad, restaurant, hjem og sult.", en: "Used for food, restaurants, home, and hunger." },
+    words: { japanese: ["食べる", "taberu"], russian: ["есть", "yest"], georgian: ["ჭამა", "ch'ama"], german: ["essen", "es-sen"], danish: ["spise", "spi-se"], italian: ["mangiare", "man-ja-re"], english: ["eat", "it"] },
+    forms: { japanese: ["食べます", "食べました", "食べます"], russian: ["я ем", "я ел / ела", "я буду есть"], georgian: ["მე ვჭამ", "მე ვჭამე", "მე შევჭამ"], german: ["ich esse", "ich habe gegessen", "ich werde essen"], danish: ["jeg spiser", "jeg spiste", "jeg vil spise"], italian: ["mangio", "ho mangiato", "mangerò"], english: ["I eat", "I ate", "I will eat"] }
+  },
+  {
+    key: "drink",
+    type: "verb",
+    priority: 13,
+    meaning: { ru: "пить", ka: "სმა", de: "trinken", da: "drikke", en: "to drink" },
+    usage: { ru: "Используется для воды, кофе, чая, кафе и просьб.", ka: "გამოიყენება წყლის, ყავის, ჩაის და თხოვნების დროს.", de: "Für Wasser, Kaffee, Tee, Café und Bitten.", da: "Bruges om vand, kaffe, te, café og ønsker.", en: "Used for water, coffee, tea, cafes, and requests." },
+    words: { japanese: ["飲む", "nomu"], russian: ["пить", "pit"], georgian: ["სმა", "sma"], german: ["trinken", "trin-ken"], danish: ["drikke", "drik-ke"], italian: ["bere", "be-re"], english: ["drink", "drink"] },
+    forms: { japanese: ["飲みます", "飲みました", "飲みます"], russian: ["я пью", "я пил / пила", "я буду пить"], georgian: ["მე ვსვამ", "მე დავლიე", "მე დავლევ"], german: ["ich trinke", "ich habe getrunken", "ich werde trinken"], danish: ["jeg drikker", "jeg drak", "jeg vil drikke"], italian: ["bevo", "ho bevuto", "berrò"], english: ["I drink", "I drank", "I will drink"] }
+  },
+  {
+    key: "speak",
+    type: "verb",
+    priority: 14,
+    meaning: { ru: "говорить", ka: "ლაპარაკი", de: "sprechen", da: "tale", en: "to speak" },
+    usage: { ru: "Главный глагол для языка, общения, вопросов и разговора.", ka: "მთავარი ზმნაა ენაზე და საუბარზე.", de: "Ein Hauptverb für Sprache, Kommunikation und Gespräche.", da: "Et hovedverbum for sprog, kommunikation og samtale.", en: "A key verb for language, communication, questions, and conversation." },
+    words: { japanese: ["話す", "hanasu"], russian: ["говорить", "govorit"], georgian: ["ლაპარაკი", "laparaki"], german: ["sprechen", "shpre-khen"], danish: ["tale", "ta-le"], italian: ["parlare", "par-la-re"], english: ["speak", "spik"] },
+    forms: { japanese: ["話します", "話しました", "話します"], russian: ["я говорю", "я говорил / говорила", "я буду говорить"], georgian: ["მე ვლაპარაკობ", "მე ვილაპარაკე", "მე ვილაპარაკებ"], german: ["ich spreche", "ich habe gesprochen", "ich werde sprechen"], danish: ["jeg taler", "jeg talte", "jeg vil tale"], italian: ["parlo", "ho parlato", "parlerò"], english: ["I speak", "I spoke", "I will speak"] }
+  },
+  {
+    key: "want",
+    type: "verb",
+    priority: 15,
+    meaning: { ru: "хотеть", ka: "სურვილი / მინდა", de: "wollen", da: "ville", en: "to want" },
+    usage: { ru: "Нужно для просьб, желаний, заказа еды и планов.", ka: "საჭიროა თხოვნებისთვის, სურვილებისთვის და გეგმებისთვის.", de: "Für Bitten, Wünsche, Bestellungen und Pläne.", da: "Bruges til ønsker, bestilling, planer og anmodninger.", en: "Used for requests, wishes, ordering food, and plans." },
+    words: { japanese: ["欲しい / したい", "hoshii / shitai"], russian: ["хотеть", "khotet"], georgian: ["მინდა", "minda"], german: ["wollen", "vol-len"], danish: ["ville", "vil-le"], italian: ["volere", "vo-le-re"], english: ["want", "wont"] },
+    forms: { japanese: ["欲しいです", "欲しかったです", "欲しいです"], russian: ["я хочу", "я хотел / хотела", "я захочу / буду хотеть"], georgian: ["მე მინდა", "მე მინდოდა", "მე მომინდება"], german: ["ich will", "ich wollte", "ich werde wollen"], danish: ["jeg vil", "jeg ville", "jeg vil ville"], italian: ["voglio", "ho voluto", "vorrò"], english: ["I want", "I wanted", "I will want"] }
+  },
+  {
+    key: "know",
+    type: "verb",
+    priority: 16,
+    meaning: { ru: "знать", ka: "ცოდნა", de: "wissen", da: "vide", en: "to know" },
+    usage: { ru: "Используется, когда говоришь о знании, понимании и информации.", ka: "გამოიყენება ცოდნისა და ინფორმაციის დროს.", de: "Für Wissen, Verstehen und Informationen.", da: "Bruges om viden, forståelse og information.", en: "Used for knowledge, understanding, and information." },
+    words: { japanese: ["知る", "shiru"], russian: ["знать", "znat"], georgian: ["ცოდნა", "tsodna"], german: ["wissen", "vis-sen"], danish: ["vide", "vi-de"], italian: ["sapere", "sa-pe-re"], english: ["know", "no"] },
+    forms: { japanese: ["知っています", "知っていました", "知ります"], russian: ["я знаю", "я знал / знала", "я буду знать"], georgian: ["მე ვიცი", "მე ვიცოდი", "მე მეცოდინება"], german: ["ich weiß", "ich wusste", "ich werde wissen"], danish: ["jeg ved", "jeg vidste", "jeg vil vide"], italian: ["so", "ho saputo", "saprò"], english: ["I know", "I knew", "I will know"] }
+  },
+  {
+    key: "do",
+    type: "verb",
+    priority: 17,
+    meaning: { ru: "делать", ka: "კეთება", de: "machen", da: "gøre", en: "to do" },
+    usage: { ru: "Очень частый глагол для действий, работы, учебы и вопросов.", ka: "ხშირი ზმნაა მოქმედებისთვის, სამუშაოსთვის და კითხვებისთვის.", de: "Sehr häufig für Handlungen, Arbeit, Lernen und Fragen.", da: "Meget almindeligt for handlinger, arbejde, læring og spørgsmål.", en: "Very common for actions, work, study, and questions." },
+    words: { japanese: ["する", "suru"], russian: ["делать", "delat"], georgian: ["კეთება", "keteba"], german: ["machen", "ma-khen"], danish: ["gøre", "goe-re"], italian: ["fare", "fa-re"], english: ["do", "du"] },
+    forms: { japanese: ["します", "しました", "します"], russian: ["я делаю", "я делал / делала", "я буду делать"], georgian: ["მე ვაკეთებ", "მე გავაკეთე", "მე გავაკეთებ"], german: ["ich mache", "ich habe gemacht", "ich werde machen"], danish: ["jeg gør", "jeg gjorde", "jeg vil gøre"], italian: ["faccio", "ho fatto", "farò"], english: ["I do", "I did", "I will do"] }
+  },
+  {
+    key: "have",
+    type: "verb",
+    priority: 18,
+    meaning: { ru: "иметь / у меня есть", ka: "ქონა", de: "haben", da: "have", en: "to have" },
+    usage: { ru: "Нужно для вещей, семьи, времени, денег и возможностей.", ka: "საჭიროა ნივთებზე, ოჯახზე, დროზე და შესაძლებლობებზე.", de: "Für Dinge, Familie, Zeit, Geld und Möglichkeiten.", da: "Bruges om ting, familie, tid, penge og muligheder.", en: "Used for things, family, time, money, and possibilities." },
+    words: { japanese: ["ある / 持つ", "aru / motsu"], russian: ["иметь", "imet"], georgian: ["ქონა", "kona"], german: ["haben", "ha-ben"], danish: ["have", "ha-ve"], italian: ["avere", "a-ve-re"], english: ["have", "hav"] },
+    forms: { japanese: ["あります", "ありました", "あります"], russian: ["у меня есть", "у меня было", "у меня будет"], georgian: ["მე მაქვს", "მე მქონდა", "მე მექნება"], german: ["ich habe", "ich hatte", "ich werde haben"], danish: ["jeg har", "jeg havde", "jeg vil have"], italian: ["ho", "ho avuto", "avrò"], english: ["I have", "I had", "I will have"] }
+  }
+];
+
+const dictionaryFallbackForms = {
+  japanese: (term) => [`${term}を使います`, `${term}を使いました`, `${term}を使います`],
+  russian: (term) => [`я использую «${term}»`, `я использовал / использовала «${term}»`, `я буду использовать «${term}»`],
+  georgian: (term) => [`მე ვიყენებ "${term}"`, `მე გამოვიყენე "${term}"`, `მე გამოვიყენებ "${term}"`],
+  german: (term) => [`ich benutze "${term}"`, `ich habe "${term}" benutzt`, `ich werde "${term}" benutzen`],
+  danish: (term) => [`jeg bruger "${term}"`, `jeg brugte "${term}"`, `jeg vil bruge "${term}"`],
+  italian: (term) => [`uso "${term}"`, `ho usato "${term}"`, `userò "${term}"`],
+  english: (term) => [`I use "${term}"`, `I used "${term}"`, `I will use "${term}"`]
+};
+
 let selectedLanguage = localStorage.getItem("lingua-step-language") || "japanese";
 let selectedAppLanguage = localStorage.getItem("langora-app-language") || "ru";
 let selectedLevel = localStorage.getItem("lingua-step-level") || "A0";
+let selectedRoute = localStorage.getItem("langora-route") || "course";
 let selectedLesson = "alphabet";
 let currentTask = null;
+let dictionaryQuery = "";
+let dictionaryLetter = "";
 
 const savedProgress = JSON.parse(localStorage.getItem("lingua-step-progress") || "{}");
 
@@ -950,6 +1224,29 @@ function getLanguageName(language = getLanguage()) {
 
 function getScriptName(language = getLanguage()) {
   return scriptNames[language.id]?.[selectedAppLanguage] || language.script;
+}
+
+function dictText(key) {
+  return (dictionaryRouteText[selectedAppLanguage] || dictionaryRouteText.ru)[key] || dictionaryRouteText.ru[key] || key;
+}
+
+function getDictionaryWord(entry, languageId = selectedLanguage) {
+  const [term, reading] = entry.words[languageId] || entry.words.english;
+  return { term, reading };
+}
+
+function getDictionaryForms(entry, languageId = selectedLanguage) {
+  if (entry.forms?.[languageId]) return entry.forms[languageId];
+  const word = getDictionaryWord(entry, languageId);
+  return (dictionaryFallbackForms[languageId] || dictionaryFallbackForms.english)(word.term);
+}
+
+function normalizeSearch(value) {
+  return value.trim().toLowerCase();
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 }
 
 function getWordMeaning(index, word) {
@@ -1051,11 +1348,21 @@ function renderHero() {
 }
 
 function renderLevels() {
-  levelList.innerHTML = courseLevels
+  const dictionaryButton = `
+    <button class="level-button dictionary-route ${selectedRoute === "dictionary" ? "active" : ""}" data-dictionary-route type="button">
+      <span class="level-code">${dictText("code")}</span>
+      <span>
+        <strong>${dictText("title")}</strong>
+        <span>${dictText("short")}</span>
+      </span>
+      <span class="done-dot" aria-hidden="true"></span>
+    </button>
+  `;
+  const courseButtons = courseLevels
     .map((level) => {
       const levelText = getLevelText(level);
       return `
-        <button class="level-button ${level.code === selectedLevel ? "active" : ""} ${savedProgress[`${selectedLanguage}:level:${level.code}`] ? "done" : ""}" data-level="${level.code}" type="button">
+        <button class="level-button ${selectedRoute === "course" && level.code === selectedLevel ? "active" : ""} ${savedProgress[`${selectedLanguage}:level:${level.code}`] ? "done" : ""}" data-level="${level.code}" type="button">
           <span class="level-code">${level.code}</span>
           <span>
             <strong>${levelText.title}</strong>
@@ -1066,17 +1373,31 @@ function renderLevels() {
       `;
     })
     .join("");
+  levelList.innerHTML = dictionaryButton + courseButtons;
 }
 
 function renderLevelHeader() {
+  if (selectedRoute === "dictionary") {
+    document.querySelector("#level-title").textContent = dictText("title");
+    document.querySelector("#level-description").textContent = dictText("description");
+    markLevelButton.hidden = true;
+    return;
+  }
   const level = getLevel();
   const levelText = getLevelText(level);
   document.querySelector("#level-title").textContent = `${level.code} · ${levelText.title}`;
   document.querySelector("#level-description").textContent = levelText.description;
   markLevelButton.textContent = savedProgress[getLevelKey()] ? text("levelDone") : text("markLevel");
+  markLevelButton.hidden = false;
 }
 
 function renderLessonTabs() {
+  if (selectedRoute === "dictionary") {
+    lessonTabs.hidden = true;
+    lessonTabs.innerHTML = "";
+    return;
+  }
+  lessonTabs.hidden = false;
   const level = getLevel();
   if (!level.lessons.some((lesson) => lesson.id === selectedLesson)) {
     selectedLesson = level.lessons[0].id;
@@ -1323,7 +1644,108 @@ function checkPracticeAnswer() {
   feedback.className = "feedback try";
 }
 
+function getDictionaryMatches() {
+  const query = normalizeSearch(dictionaryQuery);
+  return dictionaryEntries
+    .filter((entry) => {
+      const word = getDictionaryWord(entry);
+      const meaning = entry.meaning[selectedAppLanguage] || entry.meaning.ru || "";
+      const usage = entry.usage[selectedAppLanguage] || entry.usage.ru || "";
+      const searchable = [word.term, word.reading, meaning, usage, entry.key].join(" ").toLowerCase();
+      const firstLetter = word.term.trim().charAt(0).toUpperCase();
+      const matchesLetter = !dictionaryLetter || firstLetter === dictionaryLetter;
+      const matchesQuery = !query || searchable.includes(query);
+      return matchesLetter && matchesQuery;
+    })
+    .sort((a, b) => a.priority - b.priority);
+}
+
+function getDictionaryLetters() {
+  return [...new Set(dictionaryEntries.map((entry) => getDictionaryWord(entry).term.trim().charAt(0).toUpperCase()))].sort((a, b) =>
+    a.localeCompare(b)
+  );
+}
+
+function renderDictionaryCard(entry) {
+  const word = getDictionaryWord(entry);
+  const [present, past, future] = getDictionaryForms(entry);
+  const meaning = entry.meaning[selectedAppLanguage] || entry.meaning.ru;
+  const usage = entry.usage[selectedAppLanguage] || entry.usage.ru;
+  const type = dictionaryTypes[entry.type]?.[selectedAppLanguage] || dictionaryTypes[entry.type]?.ru || entry.type;
+  return `
+    <article class="dictionary-card">
+      <div class="dictionary-card-head">
+        <div>
+          <span class="lesson-number">${type}</span>
+          <h4>${word.term}</h4>
+          <div class="reading">${text("reading")}: ${word.reading}</div>
+        </div>
+        <strong class="dictionary-meaning">${meaning}</strong>
+      </div>
+      <div class="dictionary-detail">
+        <span>${dictText("usage")}</span>
+        <p>${usage}</p>
+      </div>
+      <div class="tense-examples">
+        <div class="example-row">
+          <strong>${dictText("present")}</strong>
+          <span class="phrase">${present}</span>
+          <span>${dictText("forms")}</span>
+        </div>
+        <div class="example-row">
+          <strong>${dictText("past")}</strong>
+          <span class="phrase">${past}</span>
+          <span>${dictText("forms")}</span>
+        </div>
+        <div class="example-row">
+          <strong>${dictText("future")}</strong>
+          <span class="phrase">${future}</span>
+          <span>${dictText("forms")}</span>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderDictionary() {
+  const matches = getDictionaryMatches();
+  const letters = getDictionaryLetters();
+  lessonContent.innerHTML = `
+    <section class="dictionary-panel">
+      <div class="dictionary-search-row">
+        <label>
+          <span>${dictText("search")}</span>
+          <input id="dictionary-search" type="search" value="${escapeHtml(dictionaryQuery)}" placeholder="${dictText("placeholder")}" autocomplete="off" />
+        </label>
+      </div>
+      <div class="letter-filter" aria-label="${dictText("search")}">
+        <button class="letter-chip ${dictionaryLetter ? "" : "active"}" data-dictionary-letter="" type="button">${dictText("allLetters")}</button>
+        ${letters
+          .map(
+            (letter) => `
+              <button class="letter-chip ${dictionaryLetter === letter ? "active" : ""}" data-dictionary-letter="${letter}" type="button">${letter}</button>
+            `
+          )
+          .join("")}
+      </div>
+      <div class="note-box">${dictText("required")}: ${dictionaryEntries.length}. ${dictText("found")}: ${matches.length}.</div>
+      <div class="dictionary-grid">
+        ${matches.length ? matches.map(renderDictionaryCard).join("") : `<div class="note-box">${dictText("noResults")}</div>`}
+      </div>
+    </section>
+  `;
+  const searchInput = document.querySelector("#dictionary-search");
+  if (searchInput) {
+    searchInput.focus({ preventScroll: true });
+    searchInput.setSelectionRange(searchInput.value.length, searchInput.value.length);
+  }
+}
+
 function renderLessonContent() {
+  if (selectedRoute === "dictionary") {
+    renderDictionary();
+    return;
+  }
   if (selectedLesson === "alphabet") renderAlphabet();
   else if (selectedLesson === "numbers") renderNumbers();
   else if (selectedLesson === "pronunciation") renderPronunciation();
@@ -1440,6 +1862,7 @@ languageMenu.addEventListener("click", (event) => {
   selectedLesson = "alphabet";
   localStorage.setItem("lingua-step-language", selectedLanguage);
   localStorage.setItem("lingua-step-level", selectedLevel);
+  dictionaryLetter = "";
   languageMenu.hidden = true;
   languageToggle.setAttribute("aria-expanded", "false");
   renderAll();
@@ -1497,10 +1920,19 @@ themeToggle.addEventListener("change", () => {
 });
 
 levelList.addEventListener("click", (event) => {
+  if (event.target.closest("[data-dictionary-route]")) {
+    selectedRoute = "dictionary";
+    localStorage.setItem("langora-route", selectedRoute);
+    renderAll();
+    return;
+  }
+
   const button = event.target.closest("[data-level]");
   if (!button) return;
+  selectedRoute = "course";
   selectedLevel = button.dataset.level;
   selectedLesson = getLevel().lessons[0].id;
+  localStorage.setItem("langora-route", selectedRoute);
   localStorage.setItem("lingua-step-level", selectedLevel);
   renderAll();
 });
@@ -1523,9 +1955,22 @@ lessonContent.addEventListener("change", (event) => {
 });
 
 lessonContent.addEventListener("click", (event) => {
+  const letterButton = event.target.closest("[data-dictionary-letter]");
+  if (letterButton) {
+    dictionaryLetter = letterButton.dataset.dictionaryLetter;
+    renderLessonContent();
+    return;
+  }
+
   if (event.target.closest("#check-answer")) {
     checkPracticeAnswer();
   }
+});
+
+lessonContent.addEventListener("input", (event) => {
+  if (!event.target.matches("#dictionary-search")) return;
+  dictionaryQuery = event.target.value;
+  renderDictionary();
 });
 
 lessonContent.addEventListener("keydown", (event) => {
