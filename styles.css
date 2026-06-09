@@ -739,6 +739,15 @@ body.dark .settings-modal {
   grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
 }
 
+.number-section {
+  display: grid;
+  gap: 10px;
+}
+
+.number-section h4 {
+  margin-bottom: 0;
+}
+
 .pronunciation-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }

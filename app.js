@@ -6,6 +6,7 @@ const courseLevels = [
     description: "Сначала учим письмо, чтение, произношение и самые первые слова. Цель A0 - перестать бояться языка и понимать, как читать.",
     lessons: [
       { id: "alphabet", title: "Алфавит", subtitle: "буквы, знаки, чтение" },
+      { id: "numbers", title: "Цифры", subtitle: "0-10 и десятки до 100" },
       { id: "pronunciation", title: "Произношение", subtitle: "как звучит язык" },
       { id: "firstWords", title: "Первые 5 слов", subtitle: "слово + чтение + смысл" }
     ]
@@ -150,6 +151,65 @@ const alphabets = {
   english: "A:ei,B:bi,C:si,D:di,E:i,F:ef,G:dji,H:eich,I:ai,J:djei,K:kei,L:el,M:em,N:en,O:ou,P:pi,Q:kyu,R:ar,S:es,T:ti,U:yu,V:vi,W:dabl-yu,X:eks,Y:wai,Z:zed/zi"
     .split(",")
     .map((item) => item.split(":").concat("английская буква"))
+};
+
+const numberSets = {
+  japanese: {
+    basic: [
+      ["0", "零 / ゼロ", "rei / zero"], ["1", "一", "ichi"], ["2", "二", "ni"], ["3", "三", "san"], ["4", "四", "yon / shi"], ["5", "五", "go"], ["6", "六", "roku"], ["7", "七", "nana / shichi"], ["8", "八", "hachi"], ["9", "九", "kyuu / ku"], ["10", "十", "juu"]
+    ],
+    tens: [
+      ["10", "十", "juu"], ["20", "二十", "ni-juu"], ["30", "三十", "san-juu"], ["40", "四十", "yon-juu"], ["50", "五十", "go-juu"], ["60", "六十", "roku-juu"], ["70", "七十", "nana-juu"], ["80", "八十", "hachi-juu"], ["90", "九十", "kyuu-juu"], ["100", "百", "hyaku"]
+    ]
+  },
+  russian: {
+    basic: [
+      ["0", "ноль", "nol"], ["1", "один", "odin"], ["2", "два", "dva"], ["3", "три", "tri"], ["4", "четыре", "chetyre"], ["5", "пять", "pyat"], ["6", "шесть", "shest"], ["7", "семь", "sem"], ["8", "восемь", "vosem"], ["9", "девять", "devyat"], ["10", "десять", "desyat"]
+    ],
+    tens: [
+      ["10", "десять", "desyat"], ["20", "двадцать", "dvadtsat"], ["30", "тридцать", "tridtsat"], ["40", "сорок", "sorok"], ["50", "пятьдесят", "pyatdesyat"], ["60", "шестьдесят", "shestdesyat"], ["70", "семьдесят", "semdesyat"], ["80", "восемьдесят", "vosemdesyat"], ["90", "девяносто", "devyanosto"], ["100", "сто", "sto"]
+    ]
+  },
+  georgian: {
+    basic: [
+      ["0", "ნული", "nuli"], ["1", "ერთი", "erti"], ["2", "ორი", "ori"], ["3", "სამი", "sami"], ["4", "ოთხი", "otkhi"], ["5", "ხუთი", "khuti"], ["6", "ექვსი", "ekvsi"], ["7", "შვიდი", "shvidi"], ["8", "რვა", "rva"], ["9", "ცხრა", "tskhra"], ["10", "ათი", "ati"]
+    ],
+    tens: [
+      ["10", "ათი", "ati"], ["20", "ოცი", "otsi"], ["30", "ოცდაათი", "otsdaati"], ["40", "ორმოცი", "ormotsi"], ["50", "ორმოცდაათი", "ormotsdaati"], ["60", "სამოცი", "samotsi"], ["70", "სამოცდაათი", "samotsdaati"], ["80", "ოთხმოცი", "otkhmotsi"], ["90", "ოთხმოცდაათი", "otkhmotsdaati"], ["100", "ასი", "asi"]
+    ]
+  },
+  german: {
+    basic: [
+      ["0", "null", "nul"], ["1", "eins", "ains"], ["2", "zwei", "tsvai"], ["3", "drei", "drai"], ["4", "vier", "fir"], ["5", "fünf", "fuenf"], ["6", "sechs", "zeks"], ["7", "sieben", "zi-ben"], ["8", "acht", "akht"], ["9", "neun", "noyn"], ["10", "zehn", "tseyn"]
+    ],
+    tens: [
+      ["10", "zehn", "tseyn"], ["20", "zwanzig", "tsvan-tsikh"], ["30", "dreißig", "drai-sikh"], ["40", "vierzig", "fir-tsikh"], ["50", "fünfzig", "fuenf-tsikh"], ["60", "sechzig", "zekh-tsikh"], ["70", "siebzig", "zip-tsikh"], ["80", "achtzig", "akh-tsikh"], ["90", "neunzig", "noyn-tsikh"], ["100", "hundert", "hun-dert"]
+    ]
+  },
+  danish: {
+    basic: [
+      ["0", "nul", "nul"], ["1", "en / et", "en / et"], ["2", "to", "to"], ["3", "tre", "tre"], ["4", "fire", "fi-re"], ["5", "fem", "fem"], ["6", "seks", "seks"], ["7", "syv", "syu"], ["8", "otte", "ot-te"], ["9", "ni", "ni"], ["10", "ti", "ti"]
+    ],
+    tens: [
+      ["10", "ti", "ti"], ["20", "tyve", "ty-ve"], ["30", "tredive", "tre-di-ve"], ["40", "fyrre", "fyr-re"], ["50", "halvtreds", "hal-tres"], ["60", "tres", "tres"], ["70", "halvfjerds", "hal-fjers"], ["80", "firs", "firs"], ["90", "halvfems", "hal-fems"], ["100", "hundrede", "hun-dre-de"]
+    ]
+  },
+  italian: {
+    basic: [
+      ["0", "zero", "dze-ro"], ["1", "uno", "u-no"], ["2", "due", "du-e"], ["3", "tre", "tre"], ["4", "quattro", "kwat-tro"], ["5", "cinque", "chin-kwe"], ["6", "sei", "sei"], ["7", "sette", "set-te"], ["8", "otto", "ot-to"], ["9", "nove", "no-ve"], ["10", "dieci", "dje-chi"]
+    ],
+    tens: [
+      ["10", "dieci", "dje-chi"], ["20", "venti", "ven-ti"], ["30", "trenta", "tren-ta"], ["40", "quaranta", "kwa-ran-ta"], ["50", "cinquanta", "chin-kwan-ta"], ["60", "sessanta", "ses-san-ta"], ["70", "settanta", "set-tan-ta"], ["80", "ottanta", "ot-tan-ta"], ["90", "novanta", "no-van-ta"], ["100", "cento", "chen-to"]
+    ]
+  },
+  english: {
+    basic: [
+      ["0", "zero", "zee-ro"], ["1", "one", "wun"], ["2", "two", "too"], ["3", "three", "three"], ["4", "four", "for"], ["5", "five", "faiv"], ["6", "six", "siks"], ["7", "seven", "sev-en"], ["8", "eight", "eit"], ["9", "nine", "nain"], ["10", "ten", "ten"]
+    ],
+    tens: [
+      ["10", "ten", "ten"], ["20", "twenty", "twen-tee"], ["30", "thirty", "thur-tee"], ["40", "forty", "for-tee"], ["50", "fifty", "fif-tee"], ["60", "sixty", "siks-tee"], ["70", "seventy", "sev-en-tee"], ["80", "eighty", "ei-tee"], ["90", "ninety", "nain-tee"], ["100", "one hundred", "wun hun-dred"]
+    ]
+  }
 };
 
 const languages = [
@@ -344,7 +404,7 @@ const languages = [
   }
 ];
 
-const appVersion = "1.2.0";
+const appVersion = "1.2.1";
 const appLanguages = [
   { id: "ru", name: "Русский", html: "ru" },
   { id: "ka", name: "ქართული", html: "ka" },
@@ -795,6 +855,7 @@ const pronunciationTips = {
 
 const lessonUi = {
   alphabet: { ru: "Алфавит", ka: "ანბანი", de: "Alphabet", da: "Alfabet", en: "Alphabet" },
+  numbers: { ru: "Цифры", ka: "რიცხვები", de: "Zahlen", da: "Tal", en: "Numbers" },
   pronunciation: { ru: "Произношение", ka: "წარმოთქმა", de: "Aussprache", da: "Udtale", en: "Pronunciation" },
   firstWords: { ru: "Первые 5 слов", ka: "პირველი 5 სიტყვა", de: "Erste 5 Wörter", da: "Første 5 ord", en: "First 5 words" },
   dailyWords: { ru: "5 слов в день", ka: "5 სიტყვა დღეში", de: "5 Wörter pro Tag", da: "5 ord om dagen", en: "5 words a day" },
@@ -815,6 +876,39 @@ const tenseUi = {
   present: { ru: "настоящее", ka: "აწმყო", de: "Gegenwart", da: "nutid", en: "present" },
   past: { ru: "прошедшее", ka: "წარსული", de: "Vergangenheit", da: "fortid", en: "past" },
   future: { ru: "будущее", ka: "მომავალი", de: "Zukunft", da: "fremtid", en: "future" }
+};
+
+const numberLessonText = {
+  ru: {
+    intro: "Сначала выучи цифры от 0 до 10, потом десятки: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.",
+    basic: "Цифры 0-10",
+    tens: "Десятки 10-100",
+    reading: "чтение"
+  },
+  ka: {
+    intro: "ჯერ ისწავლე რიცხვები 0-დან 10-მდე, შემდეგ ათეულები: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.",
+    basic: "რიცხვები 0-10",
+    tens: "ათეულები 10-100",
+    reading: "კითხვა"
+  },
+  de: {
+    intro: "Lerne zuerst die Zahlen von 0 bis 10, dann die Zehner: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.",
+    basic: "Zahlen 0-10",
+    tens: "Zehner 10-100",
+    reading: "Lesung"
+  },
+  da: {
+    intro: "Lær først tallene fra 0 til 10, derefter tierne: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.",
+    basic: "Tal 0-10",
+    tens: "Tiere 10-100",
+    reading: "læsning"
+  },
+  en: {
+    intro: "First learn numbers from 0 to 10, then tens: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.",
+    basic: "Numbers 0-10",
+    tens: "Tens 10-100",
+    reading: "reading"
+  }
 };
 
 let selectedLanguage = localStorage.getItem("lingua-step-language") || "japanese";
@@ -1019,6 +1113,39 @@ function renderAlphabet() {
   `;
 }
 
+function renderNumberGroup(title, numbers) {
+  const labels = numberLessonText[selectedAppLanguage] || numberLessonText.ru;
+  return `
+    <section class="number-section">
+      <h4>${title}</h4>
+      <div class="alphabet-grid number-grid">
+        ${numbers
+          .map(
+            ([value, term, reading]) => `
+              <article class="alphabet-card number-card">
+                <span class="lesson-number">${value}</span>
+                <strong>${term}</strong>
+                <div class="reading">${labels.reading}: ${reading}</div>
+              </article>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderNumbers() {
+  const language = getLanguage();
+  const numbers = numberSets[language.id] || numberSets.english;
+  const labels = numberLessonText[selectedAppLanguage] || numberLessonText.ru;
+  lessonContent.innerHTML = `
+    <div class="note-box">${labels.intro}</div>
+    ${renderNumberGroup(labels.basic, numbers.basic)}
+    ${renderNumberGroup(labels.tens, numbers.tens)}
+  `;
+}
+
 function renderPronunciation() {
   const tips = selectedAppLanguage === "ru" ? getLanguage().pronunciation : pronunciationTips[selectedAppLanguage];
   lessonContent.innerHTML = `
@@ -1198,6 +1325,7 @@ function checkPracticeAnswer() {
 
 function renderLessonContent() {
   if (selectedLesson === "alphabet") renderAlphabet();
+  else if (selectedLesson === "numbers") renderNumbers();
   else if (selectedLesson === "pronunciation") renderPronunciation();
   else if (selectedLesson === "firstWords" || selectedLesson === "dailyWords") renderWords();
   else if (selectedLesson === "present") renderGrammar(["present"]);
