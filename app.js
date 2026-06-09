@@ -344,7 +344,7 @@ const languages = [
   }
 ];
 
-const appVersion = "1.1.3";
+const appVersion = "1.1.4";
 const appLanguages = [
   { id: "ru", name: "Русский", html: "ru" },
   { id: "ka", name: "ქართული", html: "ka" },
@@ -1041,12 +1041,16 @@ function closeSettings() {
 async function updateApp() {
   updateAppButton.textContent = text("updated");
   if ("serviceWorker" in navigator) {
-    const registration = await navigator.serviceWorker.getRegistration();
-    if (registration) {
-      await registration.update();
-    }
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    await Promise.all(registrations.map((registration) => registration.unregister()));
   }
-  window.location.reload();
+  if ("caches" in window) {
+    const cacheNames = await caches.keys();
+    await Promise.all(cacheNames.map((cacheName) => caches.delete(cacheName)));
+  }
+  const url = new URL(window.location.href);
+  url.searchParams.set("force", `${appVersion}-${Date.now()}`);
+  window.location.replace(url.toString());
 }
 
 async function shareApp() {
@@ -1184,8 +1188,14 @@ markLevelButton.addEventListener("click", () => {
 });
 
 if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (sessionStorage.getItem("langora-controller-reloaded") === appVersion) return;
+    sessionStorage.setItem("langora-controller-reloaded", appVersion);
+    window.location.reload();
+  });
+
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("sw.js");
+    navigator.serviceWorker.register(`sw.js?v=${appVersion}`);
   });
 }
 
