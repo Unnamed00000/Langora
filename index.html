@@ -3,32 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lingua Step</title>
+    <title>Langora</title>
+    <meta name="theme-color" content="#16725a" />
+    <meta name="description" content="Langora is a multi-language learning app from alphabet to conversation." />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="app-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">Полная программа с нуля</p>
-          <h1>Lingua Step</h1>
+          <p id="app-eyebrow" class="eyebrow">Полная программа с нуля</p>
+          <h1>Langora</h1>
         </div>
 
-        <div class="language-picker">
-          <button id="language-toggle" class="language-toggle" type="button" aria-expanded="false" aria-controls="language-menu">
-            <span>
-              <small>Язык обучения</small>
-              <strong id="selected-language-name">Японский</strong>
-            </span>
-            <span class="chevron">⌄</span>
-          </button>
-          <div id="language-menu" class="language-menu" hidden></div>
+        <div class="top-controls">
+          <div class="picker-group">
+            <button class="help-button" type="button" data-help="learning" aria-label="Что такое язык обучения?">?</button>
+            <div class="language-picker">
+              <button id="language-toggle" class="language-toggle" type="button" aria-expanded="false" aria-controls="language-menu">
+                <span>
+                  <small id="learning-language-label">Язык обучения</small>
+                  <strong id="selected-language-name">Японский</strong>
+                </span>
+                <span class="chevron">⌄</span>
+              </button>
+              <div id="language-menu" class="language-menu" hidden></div>
+            </div>
+          </div>
+
+          <button id="settings-toggle" class="settings-toggle" type="button" aria-label="Настройки" aria-controls="settings-modal">⚙</button>
         </div>
       </header>
 
       <main class="layout">
-        <aside class="course-panel" aria-label="Уровни курса">
-          <div class="panel-title">Маршрут</div>
+        <aside id="course-panel" class="course-panel" aria-label="Уровни курса">
+          <div id="route-title" class="panel-title">Маршрут</div>
           <div id="level-list" class="level-list"></div>
         </aside>
 
@@ -39,18 +51,18 @@
               <h2 id="language-title"></h2>
               <p id="language-goal" class="hero-copy"></p>
             </div>
-            <div class="hero-stats" aria-label="Учебная цель">
+            <div id="hero-stats" class="hero-stats" aria-label="Учебная цель">
               <div>
                 <strong id="daily-count">0/5</strong>
-                <span>слов сегодня</span>
+                <span id="daily-words-label">слов сегодня</span>
               </div>
               <div>
                 <strong>A0-C1</strong>
-                <span>от нуля до свободы</span>
+                <span id="range-label">от нуля до свободы</span>
               </div>
               <div>
                 <strong>3</strong>
-                <span>времени в словах</span>
+                <span id="tenses-label">времени в словах</span>
               </div>
             </div>
           </section>
@@ -58,7 +70,7 @@
           <section class="level-board">
             <div class="level-heading">
               <div>
-                <p class="eyebrow">Текущий этап</p>
+                <p id="current-stage-label" class="eyebrow">Текущий этап</p>
                 <h3 id="level-title"></h3>
                 <p id="level-description"></p>
               </div>
@@ -71,6 +83,78 @@
           </section>
         </section>
       </main>
+    </div>
+
+    <div id="help-modal" class="modal-backdrop" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="help-title">
+        <button id="help-close" class="modal-close" type="button" aria-label="Закрыть">×</button>
+        <p id="help-kicker" class="eyebrow">Подсказка</p>
+        <h3 id="help-title"></h3>
+        <p id="help-text"></p>
+      </div>
+    </div>
+
+    <div id="settings-modal" class="modal-backdrop" hidden>
+      <div class="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <button id="settings-close" class="modal-close" type="button" aria-label="Закрыть">×</button>
+        <p id="settings-kicker" class="eyebrow">Настройки</p>
+        <h3 id="settings-title">Настройки приложения</h3>
+
+        <section class="settings-section">
+          <div class="settings-row-head">
+            <div>
+              <label id="settings-app-language-label" class="settings-label" for="app-language-select">Язык приложения</label>
+              <p id="settings-app-language-hint">Меняет язык кнопок, меню и подсказок.</p>
+            </div>
+            <button class="help-button" type="button" data-help="app" aria-label="Что такое язык приложения?">?</button>
+          </div>
+          <select id="app-language-select" class="settings-select">
+            <option value="ru">Русский</option>
+            <option value="ka">ქართული</option>
+            <option value="de">Deutsch</option>
+            <option value="da">Dansk</option>
+            <option value="en">English</option>
+          </select>
+        </section>
+
+        <section class="settings-section">
+          <div class="settings-row-head">
+            <div>
+              <span id="theme-label" class="settings-label">Тема</span>
+              <p id="theme-hint">Переключает светлый и темный режим.</p>
+            </div>
+            <label class="theme-switch">
+              <input id="theme-toggle" type="checkbox" />
+              <span></span>
+            </label>
+          </div>
+        </section>
+
+        <section class="settings-section">
+          <span id="install-title" class="settings-label">Установка на телефон</span>
+          <div class="install-grid">
+            <article>
+              <h4 id="android-title">Android</h4>
+              <p id="android-text">Открой приложение в Chrome, нажми меню ⋮ и выбери “Установить приложение” или “Добавить на главный экран”.</p>
+            </article>
+            <article>
+              <h4 id="iphone-title">iPhone</h4>
+              <p id="iphone-text">Открой приложение в Safari, нажми “Поделиться” и выбери “На экран Домой”.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="settings-actions">
+          <button id="update-app" class="primary-button" type="button">Обновить</button>
+          <button id="share-app" class="ghost-button" type="button">Поделиться</button>
+        </section>
+
+        <section class="settings-section">
+          <span id="about-title" class="settings-label">О приложении</span>
+          <p id="about-text">Langora помогает учить языки с полного нуля: алфавит, произношение, слова, времена и разговорные уровни.</p>
+          <p class="version-line"><span id="version-label">Версия</span>: <strong id="app-version">1.1.0</strong></p>
+        </section>
+      </div>
     </div>
 
     <script src="app.js"></script>

@@ -27,3 +27,10 @@ The app is organized as a complete learning path:
 ## Run
 
 Open `index.html` in a browser, or serve the folder with any static file server.
+
+## PWA
+
+Langora includes a web app manifest and service worker, so it can be installed from supported mobile browsers after it is served from a secure origin such as GitHub Pages.
+
+- Android: open in Chrome, tap the menu, then install the app or add it to the home screen.
+- iPhone: open in Safari, tap Share, then add it to the home screen.

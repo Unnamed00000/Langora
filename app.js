@@ -344,7 +344,304 @@ const languages = [
   }
 ];
 
+const appVersion = "1.1.0";
+const appLanguages = [
+  { id: "ru", name: "Русский", html: "ru" },
+  { id: "ka", name: "ქართული", html: "ka" },
+  { id: "de", name: "Deutsch", html: "de" },
+  { id: "da", name: "Dansk", html: "da" },
+  { id: "en", name: "English", html: "en" }
+];
+
+const ui = {
+  ru: {
+    appEyebrow: "Полная программа с нуля",
+    learningLanguage: "Язык обучения",
+    route: "Маршрут",
+    dailyWords: "слов сегодня",
+    range: "от нуля до свободы",
+    tenses: "времени в словах",
+    currentStage: "Текущий этап",
+    markLevel: "Отметить этап",
+    levelDone: "Этап пройден",
+    settingsKicker: "Настройки",
+    settingsTitle: "Настройки приложения",
+    appLanguage: "Язык приложения",
+    appLanguageHint: "Меняет язык кнопок, меню и подсказок.",
+    theme: "Тема",
+    themeHint: "Переключает светлый и темный режим.",
+    installTitle: "Установка на телефон",
+    androidTitle: "Android",
+    androidText: "Открой приложение в Chrome, нажми меню ⋮ и выбери “Установить приложение” или “Добавить на главный экран”.",
+    iphoneTitle: "iPhone",
+    iphoneText: "Открой приложение в Safari, нажми “Поделиться” и выбери “На экран Домой”.",
+    update: "Обновить",
+    share: "Поделиться",
+    aboutTitle: "О приложении",
+    aboutText: "Langora помогает учить языки с полного нуля: алфавит, произношение, слова, времена и разговорные уровни.",
+    version: "Версия",
+    helpKicker: "Подсказка",
+    close: "Закрыть",
+    learningHelpTitle: "Для чего язык обучения?",
+    learningHelpText: "Это язык, который ты хочешь изучать. Если выбрать японский, уроки покажут японскую азбуку, слова, произношение и времена.",
+    appHelpTitle: "Для чего язык приложения?",
+    appHelpText: "Это язык самого интерфейса: кнопки, настройки, подсказки и меню. Учебный язык от этого не меняется.",
+    alphabetNote: "Сначала изучи письмо и чтение. Не спеши: знак, чтение, пример.",
+    pronunciationNote: "Сначала произноси медленно: знак или слово, чтение, смысл. Не пытайся сразу говорить быстро.",
+    wordsNote: "Минимум на день - 5 слов. У каждого слова есть чтение, понятное произношение и пример в настоящем, прошедшем и будущем.",
+    learnedToday: "выучил сегодня",
+    sound: "произношение",
+    lesson: "Урок",
+    soundLabel: "Звук",
+    answerPlaceholder: "Напиши ответ здесь",
+    check: "Проверить",
+    correct: "Правильно",
+    notQuite: "Пока не совсем. Правильный пример",
+    practicePrompt: "Язык: {language}. Напиши фразу для слова «{word}» в форме: {tense}.",
+    shareCopied: "Ссылка скопирована.",
+    updated: "Приложение обновляется."
+  },
+  ka: {
+    appEyebrow: "სრული პროგრამა ნულიდან",
+    learningLanguage: "სასწავლო ენა",
+    route: "მარშრუტი",
+    dailyWords: "სიტყვა დღეს",
+    range: "ნულიდან თავისუფლებამდე",
+    tenses: "დრო სიტყვებში",
+    currentStage: "მიმდინარე ეტაპი",
+    markLevel: "ეტაპის მონიშვნა",
+    levelDone: "ეტაპი გავლილია",
+    settingsKicker: "პარამეტრები",
+    settingsTitle: "აპლიკაციის პარამეტრები",
+    appLanguage: "აპლიკაციის ენა",
+    appLanguageHint: "ცვლის ღილაკების, მენიუებისა და მინიშნებების ენას.",
+    theme: "თემა",
+    themeHint: "რთავს ნათელ ან ბნელ რეჟიმს.",
+    installTitle: "ტელეფონზე დაყენება",
+    androidTitle: "Android",
+    androidText: "გახსენით Chrome-ში, დააჭირეთ ⋮ მენიუს და აირჩიეთ აპის დაყენება ან მთავარ ეკრანზე დამატება.",
+    iphoneTitle: "iPhone",
+    iphoneText: "გახსენით Safari-ში, დააჭირეთ გაზიარებას და აირჩიეთ მთავარ ეკრანზე დამატება.",
+    update: "განახლება",
+    share: "გაზიარება",
+    aboutTitle: "აპის შესახებ",
+    aboutText: "Langora გეხმარებათ ენის ნულიდან სწავლაში: ანბანი, წარმოთქმა, სიტყვები, დროები და საუბრის დონეები.",
+    version: "ვერსია",
+    helpKicker: "მინიშნება",
+    close: "დახურვა",
+    learningHelpTitle: "რისთვის არის სასწავლო ენა?",
+    learningHelpText: "ეს არის ენა, რომელსაც სწავლობთ. მაგალითად, იაპონურის არჩევისას გაჩნდება იაპონური დამწერლობა, სიტყვები, წარმოთქმა და დროები.",
+    appHelpTitle: "რისთვის არის აპლიკაციის ენა?",
+    appHelpText: "ეს ცვლის მხოლოდ ინტერფეისს: ღილაკებს, პარამეტრებს, მინიშნებებს და მენიუს. სასწავლო ენა არ იცვლება.",
+    alphabetNote: "ჯერ ისწავლე დამწერლობა და კითხვა. ნელა: ნიშანი, კითხვა, მაგალითი.",
+    pronunciationNote: "ჯერ წარმოთქვი ნელა: ნიშანი ან სიტყვა, კითხვა, მნიშვნელობა. ნუ იჩქარებ.",
+    wordsNote: "დღის მინიმუმი არის 5 სიტყვა. თითოეულ სიტყვას აქვს კითხვა, წარმოთქმა და მაგალითი სამ დროში.",
+    learnedToday: "დღეს ვისწავლე",
+    sound: "წარმოთქმა",
+    lesson: "გაკვეთილი",
+    soundLabel: "ბგერა",
+    answerPlaceholder: "ჩაწერე პასუხი აქ",
+    check: "შემოწმება",
+    correct: "სწორია",
+    notQuite: "ჯერ არა სრულად. სწორი მაგალითია",
+    practicePrompt: "ენა: {language}. დაწერე ფრაზა სიტყვისთვის «{word}» დროში: {tense}.",
+    shareCopied: "ბმული დაკოპირდა.",
+    updated: "აპლიკაცია ახლდება."
+  },
+  de: {
+    appEyebrow: "Vollständiger Kurs ab null",
+    learningLanguage: "Lernsprache",
+    route: "Route",
+    dailyWords: "Wörter heute",
+    range: "von null bis frei",
+    tenses: "Zeiten in Wörtern",
+    currentStage: "Aktuelle Stufe",
+    markLevel: "Stufe markieren",
+    levelDone: "Stufe erledigt",
+    settingsKicker: "Einstellungen",
+    settingsTitle: "App-Einstellungen",
+    appLanguage: "App-Sprache",
+    appLanguageHint: "Ändert Buttons, Menüs und Hinweise.",
+    theme: "Design",
+    themeHint: "Wechselt zwischen hellem und dunklem Modus.",
+    installTitle: "Auf dem Telefon installieren",
+    androidTitle: "Android",
+    androidText: "Öffne die App in Chrome, tippe auf ⋮ und wähle App installieren oder Zum Startbildschirm hinzufügen.",
+    iphoneTitle: "iPhone",
+    iphoneText: "Öffne die App in Safari, tippe auf Teilen und wähle Zum Home-Bildschirm.",
+    update: "Aktualisieren",
+    share: "Teilen",
+    aboutTitle: "Über die App",
+    aboutText: "Langora hilft beim Lernen ab null: Alphabet, Aussprache, Wörter, Zeiten und Gesprächsstufen.",
+    version: "Version",
+    helpKicker: "Hinweis",
+    close: "Schließen",
+    learningHelpTitle: "Wozu dient die Lernsprache?",
+    learningHelpText: "Das ist die Sprache, die du lernst. Wenn du Japanisch wählst, bekommst du japanische Schrift, Wörter, Aussprache und Zeiten.",
+    appHelpTitle: "Wozu dient die App-Sprache?",
+    appHelpText: "Das ist nur die Sprache der Oberfläche: Buttons, Einstellungen, Hinweise und Menüs. Die Lernsprache bleibt gleich.",
+    alphabetNote: "Lerne zuerst Schrift und Lesen. Langsam: Zeichen, Lesung, Beispiel.",
+    pronunciationNote: "Sprich zuerst langsam: Zeichen oder Wort, Lesung, Bedeutung. Nicht sofort schnell sprechen.",
+    wordsNote: "Das Tagesminimum sind 5 Wörter. Jedes Wort hat Lesung, Aussprache und Beispiele in drei Zeiten.",
+    learnedToday: "heute gelernt",
+    sound: "Aussprache",
+    lesson: "Lektion",
+    soundLabel: "Laut",
+    answerPlaceholder: "Antwort hier schreiben",
+    check: "Prüfen",
+    correct: "Richtig",
+    notQuite: "Noch nicht ganz. Richtiges Beispiel",
+    practicePrompt: "Sprache: {language}. Schreibe einen Satz für «{word}» in der Form: {tense}.",
+    shareCopied: "Link kopiert.",
+    updated: "App wird aktualisiert."
+  },
+  da: {
+    appEyebrow: "Fuldt kursus fra nul",
+    learningLanguage: "Læringssprog",
+    route: "Rute",
+    dailyWords: "ord i dag",
+    range: "fra nul til frihed",
+    tenses: "tider i ord",
+    currentStage: "Aktuelt trin",
+    markLevel: "Marker trin",
+    levelDone: "Trin fuldført",
+    settingsKicker: "Indstillinger",
+    settingsTitle: "Appindstillinger",
+    appLanguage: "Appens sprog",
+    appLanguageHint: "Ændrer knapper, menuer og forklaringer.",
+    theme: "Tema",
+    themeHint: "Skifter mellem lyst og mørkt tema.",
+    installTitle: "Installer på telefon",
+    androidTitle: "Android",
+    androidText: "Åbn appen i Chrome, tryk på ⋮ og vælg Installer app eller Føj til startskærm.",
+    iphoneTitle: "iPhone",
+    iphoneText: "Åbn appen i Safari, tryk Del og vælg Føj til hjemmeskærm.",
+    update: "Opdater",
+    share: "Del",
+    aboutTitle: "Om appen",
+    aboutText: "Langora hjælper dig med at lære fra nul: alfabet, udtale, ord, tider og samtaleniveauer.",
+    version: "Version",
+    helpKicker: "Hjælp",
+    close: "Luk",
+    learningHelpTitle: "Hvad er læringssprog?",
+    learningHelpText: "Det er sproget, du vil lære. Vælger du japansk, får du japansk skrift, ord, udtale og tider.",
+    appHelpTitle: "Hvad er appens sprog?",
+    appHelpText: "Det ændrer kun grænsefladen: knapper, indstillinger, forklaringer og menuer. Læringssproget ændres ikke.",
+    alphabetNote: "Lær først skrift og læsning. Roligt: tegn, læsning, eksempel.",
+    pronunciationNote: "Udtal langsomt først: tegn eller ord, læsning, betydning. Tal ikke hurtigt med det samme.",
+    wordsNote: "Dagens minimum er 5 ord. Hvert ord har læsning, udtale og eksempler i tre tider.",
+    learnedToday: "lært i dag",
+    sound: "udtale",
+    lesson: "Lektion",
+    soundLabel: "Lyd",
+    answerPlaceholder: "Skriv svaret her",
+    check: "Tjek",
+    correct: "Korrekt",
+    notQuite: "Ikke helt endnu. Rigtigt eksempel",
+    practicePrompt: "Sprog: {language}. Skriv en sætning for «{word}» i formen: {tense}.",
+    shareCopied: "Link kopieret.",
+    updated: "Appen opdateres."
+  },
+  en: {
+    appEyebrow: "Complete course from zero",
+    learningLanguage: "Learning language",
+    route: "Route",
+    dailyWords: "words today",
+    range: "from zero to fluency",
+    tenses: "tenses in words",
+    currentStage: "Current stage",
+    markLevel: "Mark stage",
+    levelDone: "Stage complete",
+    settingsKicker: "Settings",
+    settingsTitle: "App settings",
+    appLanguage: "App language",
+    appLanguageHint: "Changes buttons, menus, and helper text.",
+    theme: "Theme",
+    themeHint: "Switches between light and dark mode.",
+    installTitle: "Install on phone",
+    androidTitle: "Android",
+    androidText: "Open the app in Chrome, tap ⋮, then choose Install app or Add to Home screen.",
+    iphoneTitle: "iPhone",
+    iphoneText: "Open the app in Safari, tap Share, then choose Add to Home Screen.",
+    update: "Update",
+    share: "Share",
+    aboutTitle: "About",
+    aboutText: "Langora helps you learn from zero: alphabet, pronunciation, words, tenses, and conversation levels.",
+    version: "Version",
+    helpKicker: "Help",
+    close: "Close",
+    learningHelpTitle: "What is the learning language?",
+    learningHelpText: "This is the language you want to study. If you choose Japanese, lessons show Japanese writing, words, pronunciation, and tenses.",
+    appHelpTitle: "What is the app language?",
+    appHelpText: "This changes only the interface: buttons, settings, helper text, and menus. The learning language does not change.",
+    alphabetNote: "Learn writing and reading first. Go slowly: symbol, reading, example.",
+    pronunciationNote: "Pronounce slowly first: symbol or word, reading, meaning. Do not rush into fast speech.",
+    wordsNote: "The daily minimum is 5 words. Each word has reading, pronunciation, and examples in three tenses.",
+    learnedToday: "learned today",
+    sound: "pronunciation",
+    lesson: "Lesson",
+    soundLabel: "Sound",
+    answerPlaceholder: "Write your answer here",
+    check: "Check",
+    correct: "Correct",
+    notQuite: "Not quite yet. Correct example",
+    practicePrompt: "Language: {language}. Write a phrase for «{word}» in this form: {tense}.",
+    shareCopied: "Link copied.",
+    updated: "App is updating."
+  }
+};
+
+const levelUi = {
+  ru: {
+    A0: ["Полный ноль", "алфавит и звук", "Сначала учим письмо, чтение, произношение и самые первые слова. Цель A0 - перестать бояться языка и понимать, как читать."],
+    A1: ["Первые фразы", "слова и настоящее", "Учим ежедневные слова, простые фразы и настоящее время. На этом этапе ученик уже может сказать базовые вещи о себе."],
+    A2: ["Время и действия", "прошлое и будущее", "Добавляем прошедшее и будущее. Ученик начинает говорить: что делал, что делает и что будет делать."],
+    A3: ["Разговорный мост", "вопросы и ответы", "Учимся связывать фразы: вопросы, ответы, просьбы, объяснение простых причин и короткие диалоги."],
+    B1: ["Разговорный уровень", "свободная база", "Ученик говорит о дне, семье, работе, учебе, планах и умеет поддержать простой разговор без подготовки."],
+    B2: ["Уверенная речь", "мнение и детали", "Добавляем мнение, аргументы, уточнения, более длинные фразы и устойчивые выражения."],
+    C1: ["Свобода языка", "почти совершенство", "Цель - говорить естественно: понимать оттенки, быстро строить речь и не переводить каждую фразу в голове."]
+  },
+  en: {
+    A0: ["Absolute zero", "alphabet and sound", "Start with writing, reading, pronunciation, and first words. The goal is to stop fearing the language."],
+    A1: ["First phrases", "words and present", "Learn daily words, simple phrases, and present tense."],
+    A2: ["Time and actions", "past and future", "Add past and future so you can say what happened, happens, and will happen."],
+    A3: ["Conversation bridge", "questions and answers", "Connect phrases, ask questions, answer, request, and explain simple reasons."],
+    B1: ["Conversational level", "free basics", "Talk about your day, family, work, study, and plans."],
+    B2: ["Confident speech", "opinions and detail", "Add opinions, arguments, details, longer phrases, and fixed expressions."],
+    C1: ["Language freedom", "near mastery", "Speak naturally, understand nuance, and build speech quickly."]
+  }
+};
+
+["ka", "de", "da"].forEach((id) => {
+  levelUi[id] = levelUi.en;
+});
+
+const lessonUi = {
+  alphabet: { ru: "Алфавит", ka: "ანბანი", de: "Alphabet", da: "Alfabet", en: "Alphabet" },
+  pronunciation: { ru: "Произношение", ka: "წარმოთქმა", de: "Aussprache", da: "Udtale", en: "Pronunciation" },
+  firstWords: { ru: "Первые 5 слов", ka: "პირველი 5 სიტყვა", de: "Erste 5 Wörter", da: "Første 5 ord", en: "First 5 words" },
+  dailyWords: { ru: "5 слов в день", ka: "5 სიტყვა დღეში", de: "5 Wörter pro Tag", da: "5 ord om dagen", en: "5 words a day" },
+  present: { ru: "Настоящее", ka: "აწმყო", de: "Gegenwart", da: "Nutid", en: "Present" },
+  practice: { ru: "Тренировка", ka: "ვარჯიში", de: "Übung", da: "Øvelse", en: "Practice" },
+  pastFuture: { ru: "Прошлое и будущее", ka: "წარსული და მომავალი", de: "Vergangenheit und Zukunft", da: "Fortid og fremtid", en: "Past and future" },
+  dialogues: { ru: "Диалоги", ka: "დიალოგები", de: "Dialoge", da: "Dialoger", en: "Dialogues" },
+  questionPatterns: { ru: "Вопросы", ka: "კითხვები", de: "Fragen", da: "Spørgsmål", en: "Questions" },
+  story: { ru: "Рассказ о себе", ka: "ჩემ შესახებ", de: "Über mich", da: "Om mig", en: "About me" },
+  connectors: { ru: "Связки речи", ka: "დამაკავშირებლები", de: "Verbindungen", da: "Bindeord", en: "Connectors" },
+  opinion: { ru: "Мнение", ka: "აზრი", de: "Meinung", da: "Mening", en: "Opinion" },
+  advancedGrammar: { ru: "Грамматика", ka: "გრამატიკა", de: "Grammatik", da: "Grammatik", en: "Grammar" },
+  naturalSpeech: { ru: "Естественная речь", ka: "ბუნებრივი მეტყველება", de: "Natürliche Sprache", da: "Naturlig tale", en: "Natural speech" },
+  fluency: { ru: "Беглость", ka: "თავისუფალი საუბარი", de: "Flüssigkeit", da: "Flydende tale", en: "Fluency" }
+};
+
+const tenseUi = {
+  present: { ru: "настоящее", ka: "აწმყო", de: "Gegenwart", da: "nutid", en: "present" },
+  past: { ru: "прошедшее", ka: "წარსული", de: "Vergangenheit", da: "fortid", en: "past" },
+  future: { ru: "будущее", ka: "მომავალი", de: "Zukunft", da: "fremtid", en: "future" }
+};
+
 let selectedLanguage = localStorage.getItem("lingua-step-language") || "japanese";
+let selectedAppLanguage = localStorage.getItem("langora-app-language") || "ru";
 let selectedLevel = localStorage.getItem("lingua-step-level") || "A0";
 let selectedLesson = "alphabet";
 let currentTask = null;
@@ -354,10 +651,23 @@ const savedProgress = JSON.parse(localStorage.getItem("lingua-step-progress") ||
 const languageToggle = document.querySelector("#language-toggle");
 const languageMenu = document.querySelector("#language-menu");
 const selectedLanguageName = document.querySelector("#selected-language-name");
+const settingsToggle = document.querySelector("#settings-toggle");
+const settingsModal = document.querySelector("#settings-modal");
+const settingsClose = document.querySelector("#settings-close");
+const appLanguageSelect = document.querySelector("#app-language-select");
+const themeToggle = document.querySelector("#theme-toggle");
+const updateAppButton = document.querySelector("#update-app");
+const shareAppButton = document.querySelector("#share-app");
+const helpModal = document.querySelector("#help-modal");
+const helpClose = document.querySelector("#help-close");
 const levelList = document.querySelector("#level-list");
 const lessonTabs = document.querySelector("#lesson-tabs");
 const lessonContent = document.querySelector("#lesson-content");
 const markLevelButton = document.querySelector("#mark-level");
+
+function text(key) {
+  return (ui[selectedAppLanguage] && ui[selectedAppLanguage][key]) || ui.ru[key] || key;
+}
 
 function getLanguage() {
   return languages.find((language) => language.id === selectedLanguage) || languages[0];
@@ -365,6 +675,11 @@ function getLanguage() {
 
 function getLevel() {
   return courseLevels.find((level) => level.code === selectedLevel) || courseLevels[0];
+}
+
+function getLevelText(level) {
+  const pack = (levelUi[selectedAppLanguage] || levelUi.ru)[level.code] || [level.title, level.short, level.description];
+  return { title: pack[0], short: pack[1], description: pack[2] };
 }
 
 function getWordKey(index) {
@@ -378,6 +693,45 @@ function getLevelKey() {
 
 function saveProgress() {
   localStorage.setItem("lingua-step-progress", JSON.stringify(savedProgress));
+}
+
+function applyTheme() {
+  const theme = localStorage.getItem("langora-theme") || "light";
+  document.body.classList.toggle("dark", theme === "dark");
+  themeToggle.checked = theme === "dark";
+}
+
+function renderStaticUi() {
+  const appLanguage = appLanguages.find((item) => item.id === selectedAppLanguage) || appLanguages[0];
+  document.documentElement.lang = appLanguage.html;
+  document.querySelector("#app-eyebrow").textContent = text("appEyebrow");
+  document.querySelector("#learning-language-label").textContent = text("learningLanguage");
+  document.querySelector("#route-title").textContent = text("route");
+  document.querySelector("#daily-words-label").textContent = text("dailyWords");
+  document.querySelector("#range-label").textContent = text("range");
+  document.querySelector("#tenses-label").textContent = text("tenses");
+  document.querySelector("#current-stage-label").textContent = text("currentStage");
+  document.querySelector("#settings-kicker").textContent = text("settingsKicker");
+  document.querySelector("#settings-title").textContent = text("settingsTitle");
+  document.querySelector("#settings-app-language-label").textContent = text("appLanguage");
+  document.querySelector("#settings-app-language-hint").textContent = text("appLanguageHint");
+  document.querySelector("#theme-label").textContent = text("theme");
+  document.querySelector("#theme-hint").textContent = text("themeHint");
+  document.querySelector("#install-title").textContent = text("installTitle");
+  document.querySelector("#android-title").textContent = text("androidTitle");
+  document.querySelector("#android-text").textContent = text("androidText");
+  document.querySelector("#iphone-title").textContent = text("iphoneTitle");
+  document.querySelector("#iphone-text").textContent = text("iphoneText");
+  updateAppButton.textContent = text("update");
+  shareAppButton.textContent = text("share");
+  document.querySelector("#about-title").textContent = text("aboutTitle");
+  document.querySelector("#about-text").textContent = text("aboutText");
+  document.querySelector("#version-label").textContent = text("version");
+  document.querySelector("#app-version").textContent = appVersion;
+  document.querySelector("#help-kicker").textContent = text("helpKicker");
+  document.querySelector("#help-close").setAttribute("aria-label", text("close"));
+  document.querySelector("#settings-close").setAttribute("aria-label", text("close"));
+  appLanguageSelect.value = selectedAppLanguage;
 }
 
 function renderLanguageMenu() {
@@ -406,26 +760,28 @@ function renderHero() {
 
 function renderLevels() {
   levelList.innerHTML = courseLevels
-    .map(
-      (level) => `
+    .map((level) => {
+      const levelText = getLevelText(level);
+      return `
         <button class="level-button ${level.code === selectedLevel ? "active" : ""} ${savedProgress[`${selectedLanguage}:level:${level.code}`] ? "done" : ""}" data-level="${level.code}" type="button">
           <span class="level-code">${level.code}</span>
           <span>
-            <strong>${level.title}</strong>
-            <span>${level.short}</span>
+            <strong>${levelText.title}</strong>
+            <span>${levelText.short}</span>
           </span>
           <span class="done-dot" aria-hidden="true"></span>
         </button>
-      `
-    )
+      `;
+    })
     .join("");
 }
 
 function renderLevelHeader() {
   const level = getLevel();
-  document.querySelector("#level-title").textContent = `${level.code} · ${level.title}`;
-  document.querySelector("#level-description").textContent = level.description;
-  markLevelButton.textContent = savedProgress[getLevelKey()] ? "Этап пройден" : "Отметить этап";
+  const levelText = getLevelText(level);
+  document.querySelector("#level-title").textContent = `${level.code} · ${levelText.title}`;
+  document.querySelector("#level-description").textContent = levelText.description;
+  markLevelButton.textContent = savedProgress[getLevelKey()] ? text("levelDone") : text("markLevel");
 }
 
 function renderLessonTabs() {
@@ -438,7 +794,7 @@ function renderLessonTabs() {
     .map(
       (lesson) => `
         <button class="lesson-tab ${lesson.id === selectedLesson ? "active" : ""}" data-lesson="${lesson.id}" type="button">
-          ${lesson.title}
+          ${lessonUi[lesson.id]?.[selectedAppLanguage] || lesson.title}
         </button>
       `
     )
@@ -448,7 +804,7 @@ function renderLessonTabs() {
 function renderAlphabet() {
   const language = getLanguage();
   lessonContent.innerHTML = `
-    <div class="note-box">${language.alphabetIntro}</div>
+    <div class="note-box">${text("alphabetNote")} ${language.alphabetIntro}</div>
     <div class="alphabet-grid">
       ${language.alphabet
         .map(
@@ -468,13 +824,13 @@ function renderAlphabet() {
 function renderPronunciation() {
   const language = getLanguage();
   lessonContent.innerHTML = `
-    <div class="note-box">Сначала произноси медленно: знак или слово → чтение → смысл. Не пытайся сразу говорить быстро.</div>
+    <div class="note-box">${text("pronunciationNote")}</div>
     <div class="pronunciation-grid">
       ${language.pronunciation
         .map(
           (tip, index) => `
             <article class="lesson-card">
-              <span class="lesson-number">Звук ${index + 1}</span>
+              <span class="lesson-number">${text("soundLabel")} ${index + 1}</span>
               <h4>${tip.split(":")[0]}</h4>
               <p>${tip}</p>
             </article>
@@ -488,7 +844,7 @@ function renderPronunciation() {
 function renderWords() {
   const language = getLanguage();
   lessonContent.innerHTML = `
-    <div class="note-box">Минимум на день - 5 слов. У каждого слова есть чтение, понятное произношение и пример в настоящем, прошедшем и будущем.</div>
+    <div class="note-box">${text("wordsNote")}</div>
     <div class="word-grid">
       ${language.words
         .map((word, index) => {
@@ -497,10 +853,10 @@ function renderWords() {
             <article class="word-card ${checked ? "done" : ""}">
               <h4>${word.term}</h4>
               <div class="reading">${word.reading}</div>
-              <p>${word.meaning} · произношение: ${word.sound}</p>
+              <p>${word.meaning} · ${text("sound")}: ${word.sound}</p>
               <label>
                 <input type="checkbox" data-word-index="${index}" ${checked ? "checked" : ""} />
-                выучил сегодня
+                ${text("learnedToday")}
               </label>
             </article>
           `;
@@ -560,58 +916,21 @@ function renderGrammar(tenseKeys) {
 
 function renderGenericLesson(kind) {
   const language = getLanguage();
-  const cards = {
-    dialogues: [
-      ["Знакомство", `Скажи приветствие на языке: ${language.words[0].term}. Потом добавь имя.`],
-      ["Просьба", "Научись говорить: пожалуйста, можно, где находится, сколько стоит."],
-      ["Ответ", "Тренируй короткую схему: да/нет + причина + спасибо."]
-    ],
-    questionPatterns: [
-      ["Кто?", "Учимся спрашивать о человеке."],
-      ["Где?", "Учимся спрашивать место и направление."],
-      ["Когда?", "Учимся спрашивать время: сегодня, вчера, завтра."]
-    ],
-    story: [
-      ["Вчера", "1 фраза в прошедшем времени."],
-      ["Сегодня", "1 фраза в настоящем времени."],
-      ["Завтра", "1 фраза в будущем времени."]
-    ],
-    connectors: [
-      ["и / но", "Соединяй две короткие фразы."],
-      ["потому что", "Добавляй простую причину."],
-      ["потом", "Рассказывай порядок действий."]
-    ],
-    opinion: [
-      ["Я думаю", "Начни мнение мягко."],
-      ["Мне нравится", "Говори о вкусе и выборе."],
-      ["Я не согласен", "Учись отвечать спокойно."]
-    ],
-    advancedGrammar: [
-      ["Уточнение", "Добавляй детали: когда, где, почему."],
-      ["Вежливость", "Различай дружескую и нейтральную речь."],
-      ["Сложная фраза", "Строй фразу из 2-3 частей."]
-    ],
-    naturalSpeech: [
-      ["Носители", "Учись коротким естественным ответам."],
-      ["Сокращения", "Замечай, как речь звучит быстрее."],
-      ["Оттенки", "Различай прямую и мягкую фразу."]
-    ],
-    fluency: [
-      ["Без перевода", "Думай готовыми блоками."],
-      ["Скорость", "Повторяй одну фразу 5 раз быстрее."],
-      ["Свободный ответ", "Говори 30 секунд на одну тему."]
-    ]
-  };
+  const cards = [
+    [lessonUi[kind]?.[selectedAppLanguage] || text("lesson"), `${text("learningLanguage")}: ${language.words[0].term}.`],
+    [text("lesson") + " 2", text("range")],
+    [text("lesson") + " 3", text("currentStage")]
+  ];
 
   lessonContent.innerHTML = `
     <div class="lesson-grid">
-      ${(cards[kind] || cards.story)
+      ${cards
         .map(
-          ([title, text], index) => `
+          ([title, body], index) => `
             <article class="lesson-card">
-              <span class="lesson-number">Урок ${index + 1}</span>
+              <span class="lesson-number">${text("lesson")} ${index + 1}</span>
               <h4>${title}</h4>
-              <p>${text}</p>
+              <p>${body}</p>
             </article>
           `
         )
@@ -621,11 +940,7 @@ function renderGenericLesson(kind) {
 }
 
 function getTenseName(tense) {
-  return {
-    present: "настоящее",
-    past: "прошедшее",
-    future: "будущее"
-  }[tense];
+  return tenseUi[tense]?.[selectedAppLanguage] || tenseUi[tense].ru;
 }
 
 function renderPractice() {
@@ -634,8 +949,8 @@ function renderPractice() {
     <article class="practice-card">
       <p id="practice-prompt">${currentTask.prompt}</p>
       <div class="answer-row">
-        <input id="practice-answer" type="text" autocomplete="off" placeholder="Напиши ответ здесь" />
-        <button id="check-answer" class="primary-button" type="button">Проверить</button>
+        <input id="practice-answer" type="text" autocomplete="off" placeholder="${text("answerPlaceholder")}" />
+        <button id="check-answer" class="primary-button" type="button">${text("check")}</button>
       </div>
       <p id="practice-feedback" class="feedback"></p>
     </article>
@@ -648,7 +963,10 @@ function makePracticeTask() {
   const tenseKeys = ["present", "past", "future"];
   const tense = tenseKeys[Math.floor(Math.random() * tenseKeys.length)];
   currentTask = {
-    prompt: `Язык: ${language.name}. Напиши фразу для слова «${word.meaning}» в форме: ${getTenseName(tense)}.`,
+    prompt: text("practicePrompt")
+      .replace("{language}", language.name)
+      .replace("{word}", word.meaning)
+      .replace("{tense}", getTenseName(tense)),
     answer: word.forms[tense][0],
     helper: word.forms[tense][1]
   };
@@ -666,12 +984,12 @@ function checkPracticeAnswer() {
   const expected = normalizeAnswer(currentTask.answer.split("/")[0]);
   const given = normalizeAnswer(input.value);
   if (given && expected.includes(given)) {
-    feedback.textContent = `Правильно: ${currentTask.answer}`;
+    feedback.textContent = `${text("correct")}: ${currentTask.answer}`;
     feedback.className = "feedback good";
     return;
   }
 
-  feedback.textContent = `Пока не совсем. Правильный пример: ${currentTask.answer} - ${currentTask.helper}.`;
+  feedback.textContent = `${text("notQuite")}: ${currentTask.answer} - ${currentTask.helper}.`;
   feedback.className = "feedback try";
 }
 
@@ -686,12 +1004,62 @@ function renderLessonContent() {
 }
 
 function renderAll() {
+  renderStaticUi();
   renderLanguageMenu();
   renderHero();
   renderLevels();
   renderLevelHeader();
   renderLessonTabs();
   renderLessonContent();
+}
+
+function openHelp(kind) {
+  const isLearning = kind === "learning";
+  document.querySelector("#help-title").textContent = isLearning ? text("learningHelpTitle") : text("appHelpTitle");
+  document.querySelector("#help-text").textContent = isLearning ? text("learningHelpText") : text("appHelpText");
+  helpModal.hidden = false;
+}
+
+function closeHelp() {
+  helpModal.hidden = true;
+}
+
+function openSettings() {
+  settingsModal.hidden = false;
+}
+
+function closeSettings() {
+  settingsModal.hidden = true;
+}
+
+async function updateApp() {
+  updateAppButton.textContent = text("updated");
+  if ("serviceWorker" in navigator) {
+    const registration = await navigator.serviceWorker.getRegistration();
+    if (registration) {
+      await registration.update();
+    }
+  }
+  window.location.reload();
+}
+
+async function shareApp() {
+  const shareData = {
+    title: "Langora",
+    text: "Langora language learning app",
+    url: window.location.href
+  };
+  if (navigator.share) {
+    await navigator.share(shareData);
+    return;
+  }
+  if (navigator.clipboard) {
+    await navigator.clipboard.writeText(window.location.href);
+    shareAppButton.textContent = text("shareCopied");
+    window.setTimeout(() => {
+      shareAppButton.textContent = text("share");
+    }, 1600);
+  }
 }
 
 languageToggle.addEventListener("click", () => {
@@ -713,11 +1081,37 @@ languageMenu.addEventListener("click", (event) => {
   renderAll();
 });
 
+settingsToggle.addEventListener("click", openSettings);
+settingsClose.addEventListener("click", closeSettings);
+helpClose.addEventListener("click", closeHelp);
+updateAppButton.addEventListener("click", updateApp);
+shareAppButton.addEventListener("click", shareApp);
+
 document.addEventListener("click", (event) => {
+  const helpButton = event.target.closest("[data-help]");
+  if (helpButton) {
+    openHelp(helpButton.dataset.help);
+    return;
+  }
+
   if (!event.target.closest(".language-picker")) {
     languageMenu.hidden = true;
     languageToggle.setAttribute("aria-expanded", "false");
   }
+
+  if (event.target === helpModal) closeHelp();
+  if (event.target === settingsModal) closeSettings();
+});
+
+appLanguageSelect.addEventListener("change", () => {
+  selectedAppLanguage = appLanguageSelect.value;
+  localStorage.setItem("langora-app-language", selectedAppLanguage);
+  renderAll();
+});
+
+themeToggle.addEventListener("change", () => {
+  localStorage.setItem("langora-theme", themeToggle.checked ? "dark" : "light");
+  applyTheme();
 });
 
 levelList.addEventListener("click", (event) => {
@@ -765,4 +1159,11 @@ markLevelButton.addEventListener("click", () => {
   renderLevelHeader();
 });
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js");
+  });
+}
+
+applyTheme();
 renderAll();
