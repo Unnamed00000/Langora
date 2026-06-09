@@ -344,7 +344,7 @@ const languages = [
   }
 ];
 
-const appVersion = "1.1.8";
+const appVersion = "1.1.9";
 const appLanguages = [
   { id: "ru", name: "Русский", html: "ru" },
   { id: "ka", name: "ქართული", html: "ka" },
