@@ -344,7 +344,7 @@ const languages = [
   }
 ];
 
-const appVersion = "1.1.4";
+const appVersion = "1.1.5";
 const appLanguages = [
   { id: "ru", name: "Русский", html: "ru" },
   { id: "ka", name: "ქართული", html: "ka" },
@@ -401,6 +401,22 @@ const ui = {
     practicePrompt: "Язык: {language}. Напиши фразу для слова «{word}» в форме: {tense}.",
     shareCopied: "Ссылка скопирована.",
     updated: "Приложение обновляется."
+    ,meaning: "значение",
+    formMeaning: "{tense}: {meaning}",
+    contentGoal: "Ты изучаешь {language}. Начни с письма и произношения, затем каждый день проходи 5 слов и формы настоящего, прошедшего и будущего.",
+    contentAlphabetIntro: "Этот урок показывает письмо языка {language}: сначала знак, затем чтение и короткая подсказка.",
+    grammarPresentTitle: "Настоящее",
+    grammarPresentRule: "Используется для действий сейчас, привычек и простых фактов.",
+    grammarPresentNote: "Учись через короткую фразу: я делаю, я говорю, я иду.",
+    grammarPastTitle: "Прошедшее",
+    grammarPastRule: "Используется для того, что уже произошло.",
+    grammarPastNote: "Сравнивай с настоящим, чтобы видеть, как меняется глагол.",
+    grammarFutureTitle: "Будущее",
+    grammarFutureRule: "Используется для планов и действий позже.",
+    grammarFutureNote: "Добавляй слова времени: завтра, потом, на следующей неделе.",
+    genericLessonBody: "Тренируй этот урок на языке {language}: сначала короткая фраза, потом вопрос, потом полный ответ."
+    ,reading: "чтение",
+    alphabetPracticeHint: "Произнеси этот звук медленно и сравни с примером чтения."
   },
   ka: {
     appEyebrow: "სრული პროგრამა ნულიდან",
@@ -448,7 +464,23 @@ const ui = {
     notQuite: "ჯერ არა სრულად. სწორი მაგალითია",
     practicePrompt: "ენა: {language}. დაწერე ფრაზა სიტყვისთვის «{word}» დროში: {tense}.",
     shareCopied: "ბმული დაკოპირდა.",
-    updated: "აპლიკაცია ახლდება."
+    updated: "აპლიკაცია ახლდება.",
+    meaning: "მნიშვნელობა",
+    formMeaning: "{tense}: {meaning}",
+    contentGoal: "თქვენ სწავლობთ ენას {language}. დაიწყეთ დამწერლობით და წარმოთქმით, შემდეგ ყოველდღე ისწავლეთ 5 სიტყვა და აწმყო, წარსული და მომავალი ფორმები.",
+    contentAlphabetIntro: "ეს გაკვეთილი აჩვენებს ენის {language} დამწერლობას: ჯერ ნიშანი, შემდეგ კითხვა და მოკლე მინიშნება.",
+    grammarPresentTitle: "აწმყო",
+    grammarPresentRule: "გამოიყენება მოქმედებისთვის ახლა, ჩვევებისთვის და მარტივი ფაქტებისთვის.",
+    grammarPresentNote: "ისწავლე მოკლე ფრაზით: მე ვაკეთებ, მე ვამბობ, მე მივდივარ.",
+    grammarPastTitle: "წარსული",
+    grammarPastRule: "გამოიყენება იმისთვის, რაც უკვე მოხდა.",
+    grammarPastNote: "შეადარე აწმყოს, რომ დაინახო როგორ იცვლება ზმნა.",
+    grammarFutureTitle: "მომავალი",
+    grammarFutureRule: "გამოიყენება გეგმებისთვის და მოგვიანებით მოქმედებისთვის.",
+    grammarFutureNote: "დაამატე დროის სიტყვები: ხვალ, შემდეგ, მომავალ კვირას.",
+    genericLessonBody: "ივარჯიშე ეს გაკვეთილი ენაზე {language}: ჯერ მოკლე ფრაზა, შემდეგ კითხვა, შემდეგ სრული პასუხი.",
+    reading: "კითხვა",
+    alphabetPracticeHint: "წარმოთქვი ეს ბგერა ნელა და შეადარე კითხვის მაგალითს."
   },
   de: {
     appEyebrow: "Vollständiger Kurs ab null",
@@ -496,7 +528,23 @@ const ui = {
     notQuite: "Noch nicht ganz. Richtiges Beispiel",
     practicePrompt: "Sprache: {language}. Schreibe einen Satz für «{word}» in der Form: {tense}.",
     shareCopied: "Link kopiert.",
-    updated: "App wird aktualisiert."
+    updated: "App wird aktualisiert.",
+    meaning: "Bedeutung",
+    formMeaning: "{tense}: {meaning}",
+    contentGoal: "Du lernst {language}. Beginne mit Schrift und Aussprache, dann übe täglich 5 Wörter und die Formen für Gegenwart, Vergangenheit und Zukunft.",
+    contentAlphabetIntro: "Diese Lektion zeigt die Schrift von {language}: zuerst das Zeichen, dann die Lesung und ein kurzer Hinweis.",
+    grammarPresentTitle: "Gegenwart",
+    grammarPresentRule: "Wird für Handlungen jetzt, Gewohnheiten und einfache Fakten verwendet.",
+    grammarPresentNote: "Lerne mit kurzen Sätzen: ich mache, ich sage, ich gehe.",
+    grammarPastTitle: "Vergangenheit",
+    grammarPastRule: "Wird für Dinge verwendet, die schon passiert sind.",
+    grammarPastNote: "Vergleiche mit der Gegenwart, um die Verbänderung zu sehen.",
+    grammarFutureTitle: "Zukunft",
+    grammarFutureRule: "Wird für Pläne und spätere Handlungen verwendet.",
+    grammarFutureNote: "Füge Zeitwörter hinzu: morgen, später, nächste Woche.",
+    genericLessonBody: "Übe diese Lektion in {language}: zuerst ein kurzer Satz, dann eine Frage, dann eine vollständige Antwort.",
+    reading: "Lesung",
+    alphabetPracticeHint: "Sprich diesen Laut langsam aus und vergleiche ihn mit der Lesung."
   },
   da: {
     appEyebrow: "Fuldt kursus fra nul",
@@ -544,7 +592,23 @@ const ui = {
     notQuite: "Ikke helt endnu. Rigtigt eksempel",
     practicePrompt: "Sprog: {language}. Skriv en sætning for «{word}» i formen: {tense}.",
     shareCopied: "Link kopieret.",
-    updated: "Appen opdateres."
+    updated: "Appen opdateres.",
+    meaning: "betydning",
+    formMeaning: "{tense}: {meaning}",
+    contentGoal: "Du lærer {language}. Start med skrift og udtale, og øv derefter 5 ord hver dag samt nutid, fortid og fremtid.",
+    contentAlphabetIntro: "Denne lektion viser skriften i {language}: først tegn, derefter læsning og en kort forklaring.",
+    grammarPresentTitle: "Nutid",
+    grammarPresentRule: "Bruges til handlinger nu, vaner og enkle fakta.",
+    grammarPresentNote: "Lær med korte sætninger: jeg gør, jeg siger, jeg går.",
+    grammarPastTitle: "Fortid",
+    grammarPastRule: "Bruges til det, der allerede er sket.",
+    grammarPastNote: "Sammenlign med nutid for at se, hvordan verbet ændrer sig.",
+    grammarFutureTitle: "Fremtid",
+    grammarFutureRule: "Bruges til planer og handlinger senere.",
+    grammarFutureNote: "Tilføj tidsord: i morgen, senere, næste uge.",
+    genericLessonBody: "Øv denne lektion på {language}: først en kort sætning, derefter et spørgsmål, derefter et fuldt svar.",
+    reading: "læsning",
+    alphabetPracticeHint: "Udtal lyden langsomt og sammenlign med læsningen."
   },
   en: {
     appEyebrow: "Complete course from zero",
@@ -592,7 +656,23 @@ const ui = {
     notQuite: "Not quite yet. Correct example",
     practicePrompt: "Language: {language}. Write a phrase for «{word}» in this form: {tense}.",
     shareCopied: "Link copied.",
-    updated: "App is updating."
+    updated: "App is updating.",
+    meaning: "meaning",
+    formMeaning: "{tense}: {meaning}",
+    contentGoal: "You are learning {language}. Start with writing and pronunciation, then practice 5 words every day plus present, past, and future forms.",
+    contentAlphabetIntro: "This lesson shows the writing system of {language}: first the symbol, then the reading and a short hint.",
+    grammarPresentTitle: "Present",
+    grammarPresentRule: "Used for actions now, habits, and simple facts.",
+    grammarPresentNote: "Learn through a short phrase: I do, I say, I go.",
+    grammarPastTitle: "Past",
+    grammarPastRule: "Used for things that already happened.",
+    grammarPastNote: "Compare it with the present to see how the verb changes.",
+    grammarFutureTitle: "Future",
+    grammarFutureRule: "Used for plans and actions later.",
+    grammarFutureNote: "Add time words: tomorrow, later, next week.",
+    genericLessonBody: "Practice this lesson in {language}: first a short phrase, then a question, then a full answer.",
+    reading: "reading",
+    alphabetPracticeHint: "Say this sound slowly and compare it with the reading example."
   }
 };
 
@@ -617,9 +697,96 @@ const levelUi = {
   }
 };
 
-["ka", "de", "da"].forEach((id) => {
-  levelUi[id] = levelUi.en;
-});
+levelUi.ka = {
+  A0: ["სრული ნული", "ანბანი და ბგერა", "დაიწყე დამწერლობით, კითხვით, წარმოთქმით და პირველი სიტყვებით. მიზანია ენის შიშის გაქრობა."],
+  A1: ["პირველი ფრაზები", "სიტყვები და აწმყო", "ისწავლე ყოველდღიური სიტყვები, მარტივი ფრაზები და აწმყო დრო."],
+  A2: ["დრო და მოქმედება", "წარსული და მომავალი", "დაამატე წარსული და მომავალი, რომ თქვა რა მოხდა, რა ხდება და რა მოხდება."],
+  A3: ["საუბრის ხიდი", "კითხვები და პასუხები", "დააკავშირე ფრაზები, დასვი კითხვები, უპასუხე და ახსენი მარტივი მიზეზები."],
+  B1: ["სასაუბრო დონე", "თავისუფალი საფუძველი", "ისაუბრე დღეზე, ოჯახზე, სამსახურზე, სწავლაზე და გეგმებზე."],
+  B2: ["დარწმუნებული მეტყველება", "აზრი და დეტალები", "დაამატე აზრები, არგუმენტები, დეტალები და გრძელი ფრაზები."],
+  C1: ["ენის თავისუფლება", "თითქმის სრულყოფა", "ილაპარაკე ბუნებრივად, გაიგე ნიუანსები და სწრაფად ააწყვე მეტყველება."]
+};
+
+levelUi.de = {
+  A0: ["Absoluter Anfang", "Alphabet und Klang", "Beginne mit Schrift, Lesen, Aussprache und den ersten Wörtern. Das Ziel ist, die Angst vor der Sprache zu verlieren."],
+  A1: ["Erste Sätze", "Wörter und Gegenwart", "Lerne tägliche Wörter, einfache Sätze und die Gegenwart."],
+  A2: ["Zeit und Handlung", "Vergangenheit und Zukunft", "Füge Vergangenheit und Zukunft hinzu, damit du sagen kannst, was war, ist und sein wird."],
+  A3: ["Brücke zum Gespräch", "Fragen und Antworten", "Verbinde Sätze, stelle Fragen, antworte und erkläre einfache Gründe."],
+  B1: ["Gesprächsniveau", "freie Grundlage", "Sprich über Tag, Familie, Arbeit, Lernen und Pläne."],
+  B2: ["Sichere Sprache", "Meinung und Details", "Füge Meinungen, Argumente, Details und längere Sätze hinzu."],
+  C1: ["Sprachfreiheit", "fast Meisterschaft", "Sprich natürlich, verstehe Nuancen und baue Sprache schnell auf."]
+};
+
+levelUi.da = {
+  A0: ["Helt fra nul", "alfabet og lyd", "Start med skrift, læsning, udtale og de første ord. Målet er at fjerne frygten for sproget."],
+  A1: ["Første sætninger", "ord og nutid", "Lær daglige ord, enkle sætninger og nutid."],
+  A2: ["Tid og handling", "fortid og fremtid", "Tilføj fortid og fremtid, så du kan sige hvad der skete, sker og vil ske."],
+  A3: ["Bro til samtale", "spørgsmål og svar", "Forbind sætninger, stil spørgsmål, svar og forklar enkle grunde."],
+  B1: ["Samtaleniveau", "fri basis", "Tal om din dag, familie, arbejde, læring og planer."],
+  B2: ["Sikker tale", "mening og detaljer", "Tilføj meninger, argumenter, detaljer og længere sætninger."],
+  C1: ["Sproglig frihed", "næsten mestring", "Tal naturligt, forstå nuancer og byg sprog hurtigt."]
+};
+
+const languageNames = {
+  japanese: { ru: "Японский", ka: "იაპონური", de: "Japanisch", da: "Japansk", en: "Japanese" },
+  russian: { ru: "Русский", ka: "რუსული", de: "Russisch", da: "Russisk", en: "Russian" },
+  georgian: { ru: "Грузинский", ka: "ქართული", de: "Georgisch", da: "Georgisk", en: "Georgian" },
+  german: { ru: "Немецкий", ka: "გერმანული", de: "Deutsch", da: "Tysk", en: "German" },
+  danish: { ru: "Датский", ka: "დანიური", de: "Dänisch", da: "Dansk", en: "Danish" },
+  italian: { ru: "Итальянский", ka: "იტალიური", de: "Italienisch", da: "Italiensk", en: "Italian" },
+  english: { ru: "Английский", ka: "ინგლისური", de: "Englisch", da: "Engelsk", en: "English" }
+};
+
+const wordMeanings = [
+  { ru: "приветствие", ka: "მისალმება", de: "Begrüßung", da: "hilsen", en: "greeting" },
+  { ru: "спасибо", ka: "მადლობა", de: "Danke", da: "tak", en: "thank you" },
+  { ru: "вода", ka: "წყალი", de: "Wasser", da: "vand", en: "water" },
+  { ru: "есть", ka: "ჭამა", de: "essen", da: "spise", en: "to eat" },
+  { ru: "идти", ka: "წასვლა", de: "gehen", da: "gå", en: "to go" }
+];
+
+const scriptNames = {
+  japanese: { ru: "хирагана, катакана, кандзи, ромадзи", ka: "ჰირაგანა, კატაკანა, კანჯი, რომაჯი", de: "Hiragana, Katakana, Kanji, Romaji", da: "hiragana, katakana, kanji, romaji", en: "hiragana, katakana, kanji, romaji" },
+  russian: { ru: "кириллица", ka: "კირილიცა", de: "Kyrillisch", da: "kyrillisk", en: "Cyrillic" },
+  georgian: { ru: "грузинское письмо", ka: "ქართული დამწერლობა", de: "georgische Schrift", da: "georgisk skrift", en: "Georgian script" },
+  german: { ru: "латиница + ä ö ü ß", ka: "ლათინური + ä ö ü ß", de: "Lateinisch + ä ö ü ß", da: "latinsk + ä ö ü ß", en: "Latin + ä ö ü ß" },
+  danish: { ru: "латиница + æ ø å", ka: "ლათინური + æ ø å", de: "Lateinisch + æ ø å", da: "latinsk + æ ø å", en: "Latin + æ ø å" },
+  italian: { ru: "латиница", ka: "ლათინური", de: "Lateinisch", da: "latinsk", en: "Latin" },
+  english: { ru: "латиница", ka: "ლათინური", de: "Lateinisch", da: "latinsk", en: "Latin" }
+};
+
+const pronunciationTips = {
+  ru: [
+    "Слушай звук, потом повторяй его медленно.",
+    "Разделяй длинные слова на короткие части.",
+    "Сначала важна понятность, потом скорость.",
+    "Повторяй вслух: знак, чтение, слово, короткая фраза."
+  ],
+  ka: [
+    "ჯერ მოუსმინე ბგერას, შემდეგ გაიმეორე ნელა.",
+    "გრძელი სიტყვები დაყავი მოკლე ნაწილებად.",
+    "თავიდან მთავარია გასაგები წარმოთქმა, შემდეგ სიჩქარე.",
+    "გაიმეორე ხმამაღლა: ნიშანი, კითხვა, სიტყვა, მოკლე ფრაზა."
+  ],
+  de: [
+    "Höre zuerst den Laut und wiederhole ihn langsam.",
+    "Teile lange Wörter in kurze Teile.",
+    "Am Anfang zählt Verständlichkeit mehr als Geschwindigkeit.",
+    "Sprich laut: Zeichen, Lesung, Wort, kurzer Satz."
+  ],
+  da: [
+    "Lyt først til lyden og gentag langsomt.",
+    "Del lange ord i korte dele.",
+    "I starten er tydelighed vigtigere end hastighed.",
+    "Sig det højt: tegn, læsning, ord, kort sætning."
+  ],
+  en: [
+    "Listen to the sound first, then repeat it slowly.",
+    "Split long words into short parts.",
+    "Clarity matters before speed.",
+    "Say it aloud: symbol, reading, word, short phrase."
+  ]
+};
 
 const lessonUi = {
   alphabet: { ru: "Алфавит", ka: "ანბანი", de: "Alphabet", da: "Alfabet", en: "Alphabet" },
@@ -676,6 +843,24 @@ function text(key) {
 
 function getLanguage() {
   return languages.find((language) => language.id === selectedLanguage) || languages[0];
+}
+
+function getLanguageName(language = getLanguage()) {
+  return languageNames[language.id]?.[selectedAppLanguage] || language.name;
+}
+
+function getScriptName(language = getLanguage()) {
+  return scriptNames[language.id]?.[selectedAppLanguage] || language.script;
+}
+
+function getWordMeaning(index, word) {
+  return wordMeanings[index]?.[selectedAppLanguage] || word.meaning;
+}
+
+function template(key, replacements) {
+  return Object.entries(replacements).reduce((value, [name, replacement]) => {
+    return value.replaceAll(`{${name}}`, replacement);
+  }, text(key));
 }
 
 function getLevel() {
@@ -742,13 +927,13 @@ function renderStaticUi() {
 
 function renderLanguageMenu() {
   const language = getLanguage();
-  selectedLanguageName.textContent = `${language.name} - ${language.nativeName}`;
+  selectedLanguageName.textContent = `${getLanguageName(language)} - ${language.nativeName}`;
   languageMenu.innerHTML = languages
     .map(
       (item) => `
         <button class="language-option ${item.id === selectedLanguage ? "active" : ""}" data-language="${item.id}" type="button">
-          <strong>${item.name}</strong>
-          <small>${item.nativeName} · ${item.script}</small>
+          <strong>${getLanguageName(item)}</strong>
+          <small>${item.nativeName} · ${getScriptName(item)}</small>
         </button>
       `
     )
@@ -758,9 +943,9 @@ function renderLanguageMenu() {
 function renderHero() {
   const language = getLanguage();
   const learnedCount = language.words.reduce((sum, _word, index) => sum + (savedProgress[getWordKey(index)] ? 1 : 0), 0);
-  document.querySelector("#language-script").textContent = language.script;
-  document.querySelector("#language-title").textContent = `${language.name} - ${language.nativeName}`;
-  document.querySelector("#language-goal").textContent = language.goal;
+  document.querySelector("#language-script").textContent = getScriptName(language);
+  document.querySelector("#language-title").textContent = `${getLanguageName(language)} - ${language.nativeName}`;
+  document.querySelector("#language-goal").textContent = template("contentGoal", { language: getLanguageName(language) });
   document.querySelector("#daily-count").textContent = `${learnedCount}/5`;
 }
 
@@ -810,7 +995,7 @@ function renderLessonTabs() {
 function renderAlphabet() {
   const language = getLanguage();
   lessonContent.innerHTML = `
-    <div class="note-box">${text("alphabetNote")} ${language.alphabetIntro}</div>
+    <div class="note-box">${template("contentAlphabetIntro", { language: getLanguageName(language) })}</div>
     <div class="alphabet-grid">
       ${language.alphabet
         .map(
@@ -818,7 +1003,7 @@ function renderAlphabet() {
             <article class="alphabet-card">
               <strong>${symbol}</strong>
               <div class="reading">${reading}</div>
-              <p class="hint">${hint}</p>
+              <p class="hint">${selectedAppLanguage === "ru" ? hint : text("alphabetPracticeHint")}</p>
             </article>
           `
         )
@@ -828,11 +1013,11 @@ function renderAlphabet() {
 }
 
 function renderPronunciation() {
-  const language = getLanguage();
+  const tips = selectedAppLanguage === "ru" ? getLanguage().pronunciation : pronunciationTips[selectedAppLanguage];
   lessonContent.innerHTML = `
     <div class="note-box">${text("pronunciationNote")}</div>
     <div class="pronunciation-grid">
-      ${language.pronunciation
+      ${tips
         .map(
           (tip, index) => `
             <article class="lesson-card">
@@ -855,11 +1040,12 @@ function renderWords() {
       ${language.words
         .map((word, index) => {
           const checked = Boolean(savedProgress[getWordKey(index)]);
+          const meaning = getWordMeaning(index, word);
           return `
             <article class="word-card ${checked ? "done" : ""}">
               <h4>${word.term}</h4>
               <div class="reading">${word.reading}</div>
-              <p>${word.meaning} · ${text("sound")}: ${word.sound}</p>
+              <p>${text("meaning")}: ${meaning} · ${text("sound")}: ${word.sound}</p>
               <label>
                 <input type="checkbox" data-word-index="${index}" ${checked ? "checked" : ""} />
                 ${text("learnedToday")}
@@ -876,10 +1062,10 @@ function renderTenseRows(tenseKeys) {
   const language = getLanguage();
   return language.words
     .map(
-      (word) => `
+      (word, wordIndex) => `
         <article class="lesson-card">
           <span class="lesson-number">${word.term} · ${word.reading}</span>
-          <h4>${word.meaning}</h4>
+          <h4>${getWordMeaning(wordIndex, word)}</h4>
           <div class="tense-examples">
             ${tenseKeys
               .map(
@@ -887,7 +1073,7 @@ function renderTenseRows(tenseKeys) {
                   <div class="example-row">
                     <strong>${getTenseName(tense)}</strong>
                     <span class="phrase">${word.forms[tense][0]}</span>
-                    <span>${word.forms[tense][1]}</span>
+                    <span>${template("formMeaning", { tense: getTenseName(tense), meaning: getWordMeaning(wordIndex, word) })}</span>
                   </div>
                 `
               )
@@ -900,7 +1086,6 @@ function renderTenseRows(tenseKeys) {
 }
 
 function renderGrammar(tenseKeys) {
-  const language = getLanguage();
   lessonContent.innerHTML = `
     <div class="lesson-grid">
       ${tenseKeys
@@ -908,9 +1093,9 @@ function renderGrammar(tenseKeys) {
           (tense) => `
             <article class="lesson-card">
               <span class="lesson-number">${getTenseName(tense)}</span>
-              <h4>${language.grammar[tense].title}</h4>
-              <p>${language.grammar[tense].rule}</p>
-              <p>${language.grammar[tense].note}</p>
+              <h4>${text(`grammar${capitalize(tense)}Title`)}</h4>
+              <p>${text(`grammar${capitalize(tense)}Rule`)}</p>
+              <p>${text(`grammar${capitalize(tense)}Note`)}</p>
             </article>
           `
         )
@@ -923,7 +1108,7 @@ function renderGrammar(tenseKeys) {
 function renderGenericLesson(kind) {
   const language = getLanguage();
   const cards = [
-    [lessonUi[kind]?.[selectedAppLanguage] || text("lesson"), `${text("learningLanguage")}: ${language.words[0].term}.`],
+    [lessonUi[kind]?.[selectedAppLanguage] || text("lesson"), template("genericLessonBody", { language: getLanguageName(language) })],
     [text("lesson") + " 2", text("range")],
     [text("lesson") + " 3", text("currentStage")]
   ];
@@ -949,6 +1134,10 @@ function getTenseName(tense) {
   return tenseUi[tense]?.[selectedAppLanguage] || tenseUi[tense].ru;
 }
 
+function capitalize(value) {
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
 function renderPractice() {
   makePracticeTask();
   lessonContent.innerHTML = `
@@ -965,16 +1154,17 @@ function renderPractice() {
 
 function makePracticeTask() {
   const language = getLanguage();
-  const word = language.words[Math.floor(Math.random() * language.words.length)];
+  const wordIndex = Math.floor(Math.random() * language.words.length);
+  const word = language.words[wordIndex];
   const tenseKeys = ["present", "past", "future"];
   const tense = tenseKeys[Math.floor(Math.random() * tenseKeys.length)];
   currentTask = {
     prompt: text("practicePrompt")
-      .replace("{language}", language.name)
-      .replace("{word}", word.meaning)
+      .replace("{language}", getLanguageName(language))
+      .replace("{word}", getWordMeaning(wordIndex, word))
       .replace("{tense}", getTenseName(tense)),
     answer: word.forms[tense][0],
-    helper: word.forms[tense][1]
+    helper: template("formMeaning", { tense: getTenseName(tense), meaning: getWordMeaning(wordIndex, word) })
   };
 }
 

@@ -9,6 +9,12 @@
   --accent-dark: #0d4f3f;
   --accent-soft: #dceee8;
   --warn-soft: #f6ead4;
+  --warn-ink: #573d15;
+  --success-soft: #eef8f4;
+  --danger: #9a5d00;
+  --overlay: rgba(36, 33, 29, 0.42);
+  --control-bg: #ffffff;
+  --switch-bg: #e5ded1;
   --shadow: 0 18px 45px rgba(51, 43, 29, 0.12);
 }
 
@@ -23,6 +29,12 @@ body.dark {
   --accent-dark: #96e5c8;
   --accent-soft: #173d31;
   --warn-soft: #3a2f1f;
+  --warn-ink: #f0d6a9;
+  --success-soft: #173d31;
+  --danger: #f0c06b;
+  --overlay: rgba(0, 0, 0, 0.62);
+  --control-bg: #151a18;
+  --switch-bg: #2d3732;
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
 }
 
@@ -147,7 +159,7 @@ body.dark .help-button:hover {
   height: 46px;
   border: 1px solid rgba(22, 114, 90, 0.36);
   background: var(--accent);
-  color: white;
+  color: var(--surface);
   clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0 50%);
   font-size: 1.3rem;
   font-weight: 900;
@@ -271,7 +283,7 @@ h3 {
   inset: 0;
   display: grid;
   place-items: center;
-  background: rgba(36, 33, 29, 0.42);
+  background: var(--overlay);
   padding: 18px;
 }
 
@@ -319,27 +331,19 @@ h3 {
   height: 34px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: white;
+  background: var(--control-bg);
   color: var(--ink);
   font-size: 1.4rem;
   line-height: 1;
   pointer-events: auto;
 }
 
-body.dark .modal-close {
-  background: #151a18;
-}
-
 .settings-section {
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.32);
+  background: color-mix(in srgb, var(--surface) 88%, var(--accent-soft));
   padding: 14px;
   margin-top: 12px;
-}
-
-body.dark .settings-section {
-  background: rgba(0, 0, 0, 0.12);
 }
 
 .settings-row-head {
@@ -392,7 +396,7 @@ body.dark .settings-section {
   inset: 0;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: #e5ded1;
+  background: var(--switch-bg);
 }
 
 .theme-switch span::before {
@@ -403,7 +407,7 @@ body.dark .settings-section {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: white;
+  background: var(--control-bg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   transition: transform 0.18s ease;
 }
@@ -623,7 +627,7 @@ body.dark .settings-section {
 .lesson-tab.active {
   border-color: var(--accent);
   background: var(--accent);
-  color: white;
+  color: var(--surface);
 }
 
 .ghost-button:hover,
@@ -709,7 +713,7 @@ body.dark .settings-section {
 
 .word-card.done {
   border-color: rgba(22, 114, 90, 0.34);
-  background: #eef8f4;
+  background: var(--success-soft);
 }
 
 .word-card h4 {
@@ -749,11 +753,11 @@ body.dark .settings-section {
 }
 
 .note-box {
-  border: 1px solid #ead7b6;
+  border: 1px solid color-mix(in srgb, var(--warn-soft) 50%, var(--line));
   border-radius: 8px;
   background: var(--warn-soft);
   padding: 13px;
-  color: #573d15;
+  color: var(--warn-ink);
   font-weight: 800;
 }
 
@@ -767,7 +771,7 @@ input {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: white;
+  background: var(--control-bg);
   padding: 12px 14px;
   color: var(--ink);
 }
@@ -788,7 +792,7 @@ input:focus {
 }
 
 .feedback.try {
-  color: #9a5d00;
+  color: var(--danger);
 }
 
 @media (max-width: 980px) {
