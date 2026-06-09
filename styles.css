@@ -448,6 +448,29 @@ h3 {
   margin-top: 10px;
 }
 
+.developer-line,
+.app-footer {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.developer-line {
+  margin-top: 8px;
+}
+
+.developer-line strong,
+.app-footer strong {
+  color: var(--ink);
+}
+
+.app-footer {
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  text-align: center;
+  font-weight: 800;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 290px minmax(0, 1fr);

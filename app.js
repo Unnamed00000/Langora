@@ -344,7 +344,7 @@ const languages = [
   }
 ];
 
-const appVersion = "1.1.5";
+const appVersion = "1.1.6";
 const appLanguages = [
   { id: "ru", name: "Русский", html: "ru" },
   { id: "ka", name: "ქართული", html: "ka" },
@@ -381,6 +381,7 @@ const ui = {
     aboutTitle: "О приложении",
     aboutText: "Langora помогает учить языки с полного нуля: алфавит, произношение, слова, времена и разговорные уровни.",
     version: "Версия",
+    developer: "Разработчик приложения",
     helpKicker: "Подсказка",
     close: "Закрыть",
     learningHelpTitle: "Для чего язык обучения?",
@@ -445,6 +446,7 @@ const ui = {
     aboutTitle: "აპის შესახებ",
     aboutText: "Langora გეხმარებათ ენის ნულიდან სწავლაში: ანბანი, წარმოთქმა, სიტყვები, დროები და საუბრის დონეები.",
     version: "ვერსია",
+    developer: "აპლიკაციის შემქმნელი",
     helpKicker: "მინიშნება",
     close: "დახურვა",
     learningHelpTitle: "რისთვის არის სასწავლო ენა?",
@@ -509,6 +511,7 @@ const ui = {
     aboutTitle: "Über die App",
     aboutText: "Langora hilft beim Lernen ab null: Alphabet, Aussprache, Wörter, Zeiten und Gesprächsstufen.",
     version: "Version",
+    developer: "App-Entwickler",
     helpKicker: "Hinweis",
     close: "Schließen",
     learningHelpTitle: "Wozu dient die Lernsprache?",
@@ -573,6 +576,7 @@ const ui = {
     aboutTitle: "Om appen",
     aboutText: "Langora hjælper dig med at lære fra nul: alfabet, udtale, ord, tider og samtaleniveauer.",
     version: "Version",
+    developer: "Appudvikler",
     helpKicker: "Hjælp",
     close: "Luk",
     learningHelpTitle: "Hvad er læringssprog?",
@@ -637,6 +641,7 @@ const ui = {
     aboutTitle: "About",
     aboutText: "Langora helps you learn from zero: alphabet, pronunciation, words, tenses, and conversation levels.",
     version: "Version",
+    developer: "App developer",
     helpKicker: "Help",
     close: "Close",
     learningHelpTitle: "What is the learning language?",
@@ -919,6 +924,8 @@ function renderStaticUi() {
   document.querySelector("#about-text").textContent = text("aboutText");
   document.querySelector("#version-label").textContent = text("version");
   document.querySelector("#app-version").textContent = appVersion;
+  document.querySelector("#footer-developer-label").textContent = text("developer");
+  document.querySelector("#settings-developer-label").textContent = text("developer");
   document.querySelector("#help-kicker").textContent = text("helpKicker");
   document.querySelector("#help-close").setAttribute("aria-label", text("close"));
   document.querySelector("#settings-close").setAttribute("aria-label", text("close"));
