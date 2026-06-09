@@ -20,21 +20,21 @@
 
 body.dark {
   color-scheme: dark;
-  --bg: #151a18;
-  --surface: #202723;
-  --ink: #f4f1ea;
-  --muted: #b9b2a7;
-  --line: #3a443f;
-  --accent: #54c49c;
-  --accent-dark: #96e5c8;
-  --accent-soft: #173d31;
-  --warn-soft: #3a2f1f;
-  --warn-ink: #f0d6a9;
-  --success-soft: #173d31;
-  --danger: #f0c06b;
+  --bg: #0c1110;
+  --surface: #18201d;
+  --ink: #fffaf0;
+  --muted: #ded6ca;
+  --line: #526058;
+  --accent: #6ee7b7;
+  --accent-dark: #b7f7dc;
+  --accent-soft: #203d33;
+  --warn-soft: #4a3518;
+  --warn-ink: #ffe6b0;
+  --success-soft: #1c4a3a;
+  --danger: #ffd28a;
   --overlay: rgba(0, 0, 0, 0.62);
-  --control-bg: #151a18;
-  --switch-bg: #2d3732;
+  --control-bg: #101614;
+  --switch-bg: #3a4640;
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
 }
 
@@ -74,15 +74,27 @@ button {
 .app-shell {
   width: min(1220px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 24px 0 42px;
+  padding: 118px 0 78px;
 }
 
 .topbar {
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  left: 50%;
+  width: min(1220px, calc(100% - 32px));
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 34px;
-  margin-bottom: 20px;
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  backdrop-filter: blur(14px);
 }
 
 .top-controls {
@@ -222,6 +234,22 @@ h3 {
   color: var(--ink);
   box-shadow: var(--shadow);
   text-align: left;
+}
+
+body.dark .language-toggle,
+body.dark .settings-control,
+body.dark .course-panel,
+body.dark .hero,
+body.dark .level-board,
+body.dark .lesson-card,
+body.dark .word-card,
+body.dark .alphabet-card,
+body.dark .example-row,
+body.dark .practice-card,
+body.dark .modal,
+body.dark .settings-modal {
+  background: var(--surface);
+  color: var(--ink);
 }
 
 .language-toggle small,
@@ -473,11 +501,23 @@ h3 {
 }
 
 .app-footer {
-  margin-top: 18px;
+  position: fixed;
+  z-index: 15;
+  bottom: 0;
+  left: 50%;
+  width: min(1220px, calc(100% - 32px));
+  transform: translateX(-50%);
+  margin-top: 0;
   border-top: 1px solid var(--line);
-  padding-top: 16px;
+  border-right: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  border-radius: 8px 8px 0 0;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  box-shadow: var(--shadow);
+  padding: 13px 16px;
   text-align: center;
   font-weight: 800;
+  backdrop-filter: blur(14px);
 }
 
 .layout {
@@ -502,7 +542,7 @@ h3 {
 
 .course-panel {
   position: sticky;
-  top: 18px;
+  top: 102px;
   align-self: start;
   padding: 14px;
 }
@@ -855,10 +895,35 @@ input:focus {
 @media (max-width: 620px) {
   .app-shell {
     width: min(100% - 20px, 1220px);
-    padding-top: 14px;
+    padding-top: 170px;
+    padding-bottom: 88px;
   }
 
-  .topbar,
+  .topbar {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .topbar h1 {
+    font-size: 2rem;
+  }
+
+  .topbar .eyebrow {
+    margin-bottom: 4px;
+    font-size: 0.68rem;
+  }
+
+  .top-controls {
+    grid-template-columns: minmax(0, 1fr) minmax(112px, 142px);
+    gap: 10px;
+  }
+
   .level-heading,
   .answer-row,
   .settings-row-head {
